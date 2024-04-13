@@ -1,100 +1,93 @@
 export const foodData = [
   {
+    id: 1,
+    imageUrl: "https://example.com/food1.jpg",
+    title: "Samosa",
+    description:
+      "Triangular pastry filled with spiced potatoes, peas, and sometimes meat, fried until golden brown and crispy.",
+    rating: 4.6,
+    vegetarian: true,
+  },
+  {
+    id: 2,
+    imageUrl: "https://example.com/food2.jpg",
+    title: "Chicken Biryani",
+    description:
+      "Flavorful Indian rice dish cooked with aromatic basmati rice, chicken, and a blend of spices.",
+    rating: 4.8,
+    vegetarian: false,
+  },
+  {
+    id: 3,
+    imageUrl: "https://example.com/food3.jpg",
+    title: "Paneer Tikka Masala",
+    description:
+      "Spicy and creamy Indian curry made with grilled paneer (Indian cheese) and a rich tomato-based sauce.",
+    rating: 4.7,
+    vegetarian: true,
+  },
+  {
+    id: 4,
+    imageUrl: "https://example.com/food4.jpg",
+    title: "Chicken Korma",
+    description:
+      "Mildly spiced Indian curry dish made with tender chicken pieces cooked in a creamy coconut-based sauce.",
+    rating: 4.5,
+    vegetarian: false,
+  },
+  {
     id: 5,
     imageUrl: "https://example.com/food5.jpg",
-    title: "Pad Thai",
+    title: "Pani Puri",
     description:
-      "Thai stir-fried noodle dish with eggs, tofu, peanuts, and tamarind sauce.",
-    rating: 4.7,
+      "Popular Indian street food snack consisting of hollow puri shells filled with spicy tamarind water, chickpeas, potatoes, and other fillings.",
+    rating: 4.9,
+    vegetarian: true,
   },
   {
     id: 6,
     imageUrl: "https://example.com/food6.jpg",
-    title: "Pizza Margherita",
+    title: "Mutton Rogan Josh",
     description:
-      "Classic Italian pizza topped with tomato sauce, fresh mozzarella, basil, and olive oil.",
-    rating: 4.9,
+      "Flavorful Kashmiri curry dish made with tender mutton cooked in a rich gravy flavored with traditional spices.",
+    rating: 4.6,
+    vegetarian: false,
   },
   {
     id: 7,
     imageUrl: "https://example.com/food7.jpg",
-    title: "Pho",
+    title: "Aloo Paratha",
     description:
-      "Vietnamese soup consisting of broth, rice noodles, herbs, and meat (typically beef or chicken).",
+      "Indian flatbread stuffed with spiced mashed potatoes, rolled out, and cooked on a hot griddle until golden brown and crispy.",
     rating: 4.8,
+    vegetarian: true,
   },
   {
     id: 8,
     imageUrl: "https://example.com/food8.jpg",
-    title: "Tacos",
+    title: "Fish Curry",
     description:
-      "Mexican dish consisting of a folded or rolled tortilla filled with various ingredients, such as beef, chicken, or vegetables.",
-    rating: 4.6,
+      "Spicy and tangy Indian curry made with fish pieces cooked in a flavorful tomato and coconut-based sauce.",
+    rating: 4.7,
+    vegetarian: false,
   },
   {
     id: 9,
     imageUrl: "https://example.com/food9.jpg",
-    title: "Sushi Burrito",
+    title: "Vegetable Biryani",
     description:
-      "Fusion of Japanese sushi and Mexican burrito, typically featuring sushi ingredients wrapped in a large seaweed sheet.",
-    rating: 4.5,
+      "Fragrant Indian rice dish cooked with aromatic basmati rice, mixed vegetables, and a blend of spices.",
+    rating: 4.6,
+    vegetarian: true,
   },
   {
     id: 10,
     imageUrl: "https://example.com/food10.jpg",
-    title: "Mushroom Risotto",
+    title: "Chicken Tikka",
     description:
-      "Creamy Italian rice dish cooked with mushrooms, onions, white wine, and Parmesan cheese.",
-    rating: 4.7,
-  },
-
-  {
-    id: 11,
-    imageUrl: "https://example.com/food11.jpg",
-    title: "Falafel Wrap",
-    description:
-      "Middle Eastern dish consisting of deep-fried chickpea balls, served wrapped in pita bread with salad and tahini sauce.",
-    rating: 4.6,
-  },
-  {
-    id: 12,
-    imageUrl: "https://example.com/food12.jpg",
-    title: "Ramen",
-    description:
-      "Japanese noodle soup dish with broth, wheat noodles, meat (such as pork or chicken), and various toppings.",
-    rating: 4.8,
-  },
-  {
-    id: 13,
-    imageUrl: "https://example.com/food13.jpg",
-    title: "Caesar Salad",
-    description:
-      "Classic salad made with romaine lettuce, croutons, Parmesan cheese, lemon juice, olive oil, egg, Worcestershire sauce, garlic, and black pepper.",
-    rating: 4.5,
-  },
-  {
-    id: 14,
-    imageUrl: "https://example.com/food14.jpg",
-    title: "Shrimp Pad Thai",
-    description:
-      "Thai stir-fried noodle dish with shrimp, eggs, tofu, peanuts, and tamarind sauce.",
-    rating: 4.7,
-  },
-  {
-    id: 15,
-    imageUrl: "https://example.com/food15.jpg",
-    title: "Caprese Salad",
-    description:
-      "Simple Italian salad made with fresh tomatoes, mozzarella cheese, basil, olive oil, and balsamic vinegar.",
+      "Marinated chunks of chicken skewered and grilled until charred and flavorful, often served with mint chutney.",
     rating: 4.9,
-  },
-  {
-    id: 16,
-    imageUrl: "https://example.com/food16.jpg",
-    title: "Philly Cheesesteak",
-    description:
-      "Iconic American sandwich made with thinly sliced beefsteak, melted cheese (typically Cheez Whiz or provolone), and sautéed onions, served on a long hoagie roll.",
-    rating: 4.6,
+    vegetarian: false,
   },
 ];
 
@@ -106,6 +99,7 @@ export const RatedFood = [
     description:
       "Creamy and flavorful Indian curry dish with tender chicken pieces.",
     rating: 4.7,
+    vegetarian: false,
   },
   {
     id: 2,
@@ -114,6 +108,7 @@ export const RatedFood = [
     description:
       "Popular Indian dish of chicken cooked in a mildly spiced tomato-based sauce.",
     rating: 4.8,
+    vegetarian: false,
   },
   {
     id: 3,
@@ -122,6 +117,7 @@ export const RatedFood = [
     description:
       "North Indian dish made of spinach and paneer (Indian cheese) in a thick curry sauce.",
     rating: 4.6,
+    vegetarian: true,
   },
   {
     id: 4,
@@ -130,6 +126,7 @@ export const RatedFood = [
     description:
       "Fragrant Indian rice dish cooked with spices, meat (such as chicken, lamb, or goat), and sometimes vegetables.",
     rating: 4.9,
+    vegetarian: false,
   },
   {
     id: 5,
@@ -138,6 +135,7 @@ export const RatedFood = [
     description:
       "Popular North Indian dish consisting of spicy chickpea curry (chole) served with fried bread (bhature).",
     rating: 4.7,
+    vegetarian: true,
   },
   {
     id: 6,
@@ -146,14 +144,16 @@ export const RatedFood = [
     description:
       "South Indian dish consisting of a thin, crispy pancake made from fermented rice and lentil batter, filled with spiced potatoes.",
     rating: 4.8,
+    vegetarian: true,
   },
   {
     id: 7,
     imageUrl: "https://example.com/food22.jpg",
     title: "Rogan Josh",
     description:
-      "Kashmiri curry dish made with tender meat (often lamb or goat) cooked with a mixture of spices.",
+      "Kashmiri curry dish made with tender meat and steak (often lamb or goat) cooked with a mixture of spices.",
     rating: 4.6,
+    vegetarian: false,
   },
   {
     id: 8,
@@ -162,6 +162,7 @@ export const RatedFood = [
     description:
       "Classic North Indian dish made with potatoes (aloo) and cauliflower (gobi) cooked with onions, tomatoes, and spices.",
     rating: 4.7,
+    vegetarian: true,
   },
   {
     id: 9,
@@ -170,6 +171,7 @@ export const RatedFood = [
     description:
       "Traditional Indian dessert made from ball-shaped dumplings of chhena (Indian cottage cheese) soaked in sugar syrup.",
     rating: 4.5,
+    vegetarian: true,
   },
   {
     id: 10,
@@ -178,6 +180,7 @@ export const RatedFood = [
     description:
       "Triangular pastry filled with spiced potatoes, peas, and sometimes meat, fried until golden brown and crispy.",
     rating: 4.6,
+    vegetarian: true,
   },
 ];
 
