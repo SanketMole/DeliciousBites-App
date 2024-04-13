@@ -6,9 +6,7 @@ import RestaurantPage from "./Pages/RestaurantPage";
 
 const App = () => {
   const [cart, setcart] = useState(0);
-  useEffect(() => {
-    setcart(cart);
-  }, [cart]);
+
   return (
     <div>
       <BrowserRouter>

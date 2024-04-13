@@ -1,4 +1,4 @@
-export const RatedCard = ({ data, cart, setcart }) => {
+export const RatedCard = ({ id, data, cart, setcart }) => {
   return (
     <div className="m-6">
       <div className="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
@@ -19,7 +19,9 @@ export const RatedCard = ({ data, cart, setcart }) => {
         <div className="p-6 pt-0  ">
           <button
             onClick={() => {
-              setcart((count) => count + 1);
+              setcart((prevCart) => {
+                return { ...prevCart, [id]: (prevCart[id] || 0) + 1 };
+              });
             }}
             className="px-4 border-2 border-black mx-4"
           >

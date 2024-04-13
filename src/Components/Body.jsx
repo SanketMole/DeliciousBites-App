@@ -117,6 +117,7 @@ export const Body = ({ cart, setcart }) => {
           ? star2.map((data) => (
               <RatedCard
                 cart={cart}
+                id={data.id}
                 setcart={setcart}
                 key={data.id}
                 data={data}
@@ -125,6 +126,7 @@ export const Body = ({ cart, setcart }) => {
           : star1.map((data) => (
               <RestCard
                 cart={cart}
+                id={data.id}
                 setcart={setcart}
                 key={data.id}
                 data={data}
