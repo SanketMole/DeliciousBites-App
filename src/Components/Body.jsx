@@ -4,7 +4,7 @@ import { RatedCard } from "./RatedCard";
 import { RatedFood, foodData } from "./Data";
 import { useNavigate } from "react-router-dom";
 
-export const Body = () => {
+export const Body = ({ cart, setcart }) => {
   const [val, setVal] = useState("");
   const [filterFood, setfilterFood] = useState([]);
   const [topfood, settopfood] = useState([]);
@@ -114,8 +114,22 @@ export const Body = () => {
           <div className="text-center text-red-500 mt-2">No results found</div>
         )}
         {check
-          ? star2.map((data) => <RatedCard key={data.id} data={data} />)
-          : star1.map((data) => <RestCard key={data.id} data={data} />)}
+          ? star2.map((data) => (
+              <RatedCard
+                cart={cart}
+                setcart={setcart}
+                key={data.id}
+                data={data}
+              />
+            ))
+          : star1.map((data) => (
+              <RestCard
+                cart={cart}
+                setcart={setcart}
+                key={data.id}
+                data={data}
+              />
+            ))}
       </div>
     </div>
   );
