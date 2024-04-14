@@ -27,10 +27,14 @@ export const RestCard = ({ id, data, cart, setcart }) => {
           <button
             onClick={() => {
               setcart((prevCart) => {
-                return { ...prevCart, [id]: (prevCart[id] || 0) - 1 };
+                const newCount = (prevCart[id] || 0) - 1;
+                return {
+                  ...prevCart,
+                  [id]: newCount < 0 ? 0 : newCount,
+                };
               });
             }}
-            className=" mx-4 border-2 border-black  font-bold text-3xl rounded-full px-3"
+            className="mx-4 border-2 border-black font-bold text-3xl rounded-full px-3"
           >
             -
           </button>
