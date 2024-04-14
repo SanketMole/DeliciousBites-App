@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Header } from "./Components/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Body } from "./Components/Body";
+import { Body } from "./Pages/Body";
 import RestaurantPage from "./Pages/RestaurantPage";
+import More from "./Pages/More";
 
 const App = () => {
   const [cart, setcart] = useState(0);
@@ -14,6 +15,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Body cart={cart} setcart={setcart} />} />
           <Route path="/restaurantlist" element={<RestaurantPage />} />
+          <Route path="/more/:id" element={<More />} />
         </Routes>
       </BrowserRouter>
     </div>

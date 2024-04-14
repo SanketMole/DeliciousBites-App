@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { RestCard } from "./RestCard";
-import { RatedCard } from "./RatedCard";
-import { RatedFood, foodData } from "./Data";
+import { RestCard } from "../Components/RestCard";
+import { RatedCard } from "../Components/RatedCard";
+import { RatedFood, foodData } from "../Components/Data";
 import { useNavigate } from "react-router-dom";
 
 export const Body = ({ cart, setcart }) => {
