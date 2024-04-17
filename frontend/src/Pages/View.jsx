@@ -7,6 +7,7 @@ const View = ({ cart }) => {
     const cartArray = Object.values(cart);
     setCartItemsArray(cartArray);
   }, [cart]);
+  console.log(cartItemsArray);
 
   return (
     <div className="container mx-auto py-8">

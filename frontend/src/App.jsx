@@ -16,7 +16,10 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Body cart={cart} setcart={setcart} />} />
           <Route path="/restaurantlist" element={<RestaurantPage />} />
-          <Route path="/more/:id" element={<More />} />
+          <Route
+            path="/more/:id"
+            element={<More cart={cart} setcart={setcart} />}
+          />
           <Route path="/view" element={<View cart={cart} />} />
         </Routes>
       </BrowserRouter>

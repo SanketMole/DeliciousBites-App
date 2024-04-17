@@ -32,7 +32,7 @@ const RestaurantPage = () => {
     } else {
       setNoResults(false);
     }
-  }, [place, restaurant, swiggydata]);
+  }, [place, swiggydata]);
 
   return (
     <>
