@@ -14,7 +14,7 @@ export const foodData = [
     src: "https://media.istockphoto.com/id/1488738060/photo/south-indian-veg-thali.webp?b=1&s=170667a&w=0&k=20&c=gm_9MP4A3xZwuVI_Dzd7kkfHLSZ_HJZFiKrZS-Hg4S8=",
     title: "Chicken Biryani",
     description:
-      "Flavorful Indian rice dish cooked with aromatic basmati rice, chicken, and a blend of spices.",
+      "Flavorful Indian rice dish cooked with aromatic basmati rice, chicken, and a blend of spices. Mostly made in Hyderabad",
     rating: 4.8,
     vegetarian: false,
     price: 200,

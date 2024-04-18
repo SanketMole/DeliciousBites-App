@@ -3,6 +3,7 @@ import { RestCard } from "../Components/RestCard";
 import { RatedCard } from "../Components/RatedCard";
 import { RatedFood, foodData } from "../Components/Data";
 import { useNavigate } from "react-router-dom";
+import { Header } from "../Components/Header";
 
 export const Body = ({ cart, setcart }) => {
   const [val, setVal] = useState("");
@@ -64,10 +65,10 @@ export const Body = ({ cart, setcart }) => {
   return (
     <div>
       <div className="flex justify-center">
-        <div className="my-28  h-30">
+        <div className="my-28  h-30 text-center ">
           <button
             onClick={handlenavigate}
-            className="border-2 border-black mx-2 rounded-md p-2 bg-sky-300 "
+            className="border-2 border-black  rounded-md p-2 bg-sky-300  "
           >
             Top Restaurants
           </button>
