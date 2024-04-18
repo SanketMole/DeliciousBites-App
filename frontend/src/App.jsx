@@ -7,7 +7,7 @@ import More from "./Pages/More";
 import View from "./Pages/View";
 
 const App = () => {
-  const [cart, setcart] = useState(0);
+  const [cart, setcart] = useState({});
 
   return (
     <div>

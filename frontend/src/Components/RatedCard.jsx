@@ -9,6 +9,7 @@ export const RatedCard = ({
   title,
   description,
   image,
+  price,
 }) => {
   console.log(cart);
   return (
@@ -42,6 +43,8 @@ export const RatedCard = ({
                     quantity: newCount < 0 ? 0 : newCount,
                     description: description,
                     image: image,
+                    title: title,
+                    price: price,
                   },
                 };
               });
@@ -62,6 +65,8 @@ export const RatedCard = ({
                     quantity: (prevCart[id]?.quantity || 0) + 1,
                     description: description,
                     image: image,
+                    title: title,
+                    price: price,
                   },
                 };
               });
@@ -75,7 +80,7 @@ export const RatedCard = ({
             className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
             type="button"
           >
-            Read More
+            {price} <span className="ml-1">&#8377;</span>
           </button>
         </div>
       </div>

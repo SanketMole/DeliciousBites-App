@@ -27,6 +27,9 @@ const View = ({ cart }) => {
                     className="h-44"
                   />
                 </div>
+                <p>{item.price} Rupees</p>
+                <p>{item.title}</p>
+
                 <p className="text-gray-700">Description: {item.description}</p>
               </div>
             );

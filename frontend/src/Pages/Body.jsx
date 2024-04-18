@@ -119,11 +119,12 @@ export const Body = ({ cart, setcart }) => {
                 cart={cart}
                 id={data.id}
                 setcart={setcart}
-                key={data.id}
                 data={data}
+                key={data.id}
                 title={data.title}
                 description={data.description}
                 image={data.imageUrl}
+                price={data.price}
               />
             ))
           : star1.map((data) => (
@@ -136,6 +137,7 @@ export const Body = ({ cart, setcart }) => {
                 title={data.title}
                 description={data.description}
                 image={data.src}
+                price={data.price}
               />
             ))}
       </div>
