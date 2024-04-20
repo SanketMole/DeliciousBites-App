@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RestCard } from "../Components/RestCard";
 import { RatedCard } from "../Components/RatedCard";
 import { RatedFood, foodData } from "../Components/Data";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../Components/Header";
+import SkeletonLoader from "../Components/SkeletonLoader";
 
 export const Body = ({ cart, setcart }) => {
   const [val, setVal] = useState("");
@@ -15,6 +16,7 @@ export const Body = ({ cart, setcart }) => {
   const [check, setcheck] = useState(false);
   const [option, setoption] = useState(0);
   const [noResults, setNoResults] = useState(true);
+  const [loading, setloading] = useState(true);
 
   const navigate = useNavigate();
 
@@ -23,6 +25,10 @@ export const Body = ({ cart, setcart }) => {
   }
 
   useEffect(() => {
+    setTimeout(() => {
+      setloading(false);
+    }, 500);
+
     const filtered = foodData.filter((data) => {
       return (
         data.title.toLowerCase().includes(val.toLowerCase()) ||
@@ -36,8 +42,8 @@ export const Body = ({ cart, setcart }) => {
       );
     });
 
-    settopfood(indianfilter);
     setfilterFood(filtered);
+    settopfood(indianfilter);
   }, [val]);
 
   useEffect(() => {
@@ -78,6 +84,7 @@ export const Body = ({ cart, setcart }) => {
             type="text"
             onChange={(e) => {
               setVal(e.target.value);
+              setloading(true);
             }}
           />
           <select onChange={handleStar} className="mx-4 border-2 border-black">
@@ -104,18 +111,24 @@ export const Body = ({ cart, setcart }) => {
         </div>
       </div>
 
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "5px",
-        }}
-      >
+      <div className="flex flex-wrap gap-5">
         {noResults && (
-          <div className="text-center text-red-500 mt-2">No results found</div>
+          <div className=" text-red-500 ml-24 ml-[500px] ">
+            No results found
+          </div>
         )}
-        {check
-          ? star2.map((data) => (
+        {(loading
+          ? Array.from({ length: star1.length || star2.length })
+          : check
+          ? star2
+          : star1
+        ).map((data, index) => (
+          <div key={index}>
+            {loading ? (
+              <div className="w-96 m-6 ">
+                <SkeletonLoader />
+              </div>
+            ) : check ? (
               <RatedCard
                 cart={cart}
                 id={data.id}
@@ -127,8 +140,7 @@ export const Body = ({ cart, setcart }) => {
                 image={data.imageUrl}
                 price={data.price}
               />
-            ))
-          : star1.map((data) => (
+            ) : (
               <RestCard
                 cart={cart}
                 id={data.id}
@@ -140,7 +152,9 @@ export const Body = ({ cart, setcart }) => {
                 image={data.src}
                 price={data.price}
               />
-            ))}
+            )}
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -18,11 +18,12 @@ export const RestCard = ({
       <div className="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
         <div className="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40">
           <img
+            className="animate-jump-in"
             src="https://media.istockphoto.com/id/1488738060/photo/south-indian-veg-thali.webp?b=1&s=170667a&w=0&k=20&c=gm_9MP4A3xZwuVI_Dzd7kkfHLSZ_HJZFiKrZS-Hg4S8="
             alt="card-image"
           />
         </div>
-        <div className="p-6 ">
+        <div className="p-4 ">
           <div className="flex justify-end h-10">
             {data.vegetarian ? (
               <img src={veg} alt="vegetarian" />
@@ -30,14 +31,14 @@ export const RestCard = ({
               <img src={nonveg} alt="non-vegetarian" />
             )}
           </div>
-          <h5 className="block mb-1 font-sans text-xl antialiased font-semibold leading-snug tracking-normal  text-blue-gray-900">
+          <h5 className="block mb-1 font-sans text-xl antialiased font-semibold leading-snug tracking-normal  text-blue-gray-900 ">
             {title}:- <span className="font-bold"> &#8377; {price}</span>{" "}
           </h5>
           <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
             {data.description}
           </p>
         </div>
-        <div className="p-3 pt-0  rounded-md">
+        <div className="p-3 pt-0  rounded-md ">
           <button
             onClick={() => {
               setcart((prevCart) => {
