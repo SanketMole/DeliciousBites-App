@@ -1,5 +1,6 @@
 import veg from "../assets/veg.png";
 import nonveg from "../assets/nonveg.png";
+import { Link } from "react-router-dom";
 
 export const RatedCard = ({
   id,
@@ -76,12 +77,14 @@ export const RatedCard = ({
             +
           </button>
 
-          <button
-            className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
-            type="button"
-          >
-            {price} <span className="ml-1">&#8377;</span>
-          </button>
+          <Link to="/view">
+            <button
+              className="align-middle select-none font-sans font-bold text-center uppercase transition-all text-xs py-3 px-3 rounded-lg bg-gray-900 text-white shadow-md hover:shadow-lg mb-4 ml-20"
+              type="button"
+            >
+              View Cart
+            </button>
+          </Link>
         </div>
       </div>
     </div>

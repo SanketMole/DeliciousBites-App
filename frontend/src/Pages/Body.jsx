@@ -116,7 +116,7 @@ export const Body = ({ cart, setcart }) => {
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-5">
+      <div className="flex flex-wrap gap-10">
         {noResults && (
           <div className=" text-red-500 ml-24 ml-[500px] ">
             No results found
@@ -130,7 +130,7 @@ export const Body = ({ cart, setcart }) => {
         ).map((data, index) => (
           <div key={index}>
             {loading ? (
-              <div className="  ">
+              <div className="mx-6  ">
                 <SkeletonLoader />
               </div>
             ) : check ? (
