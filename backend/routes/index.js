@@ -1,8 +1,9 @@
-import express from "express";
+import { Router } from "express";
 
 const userRouter = Router();
-const router = router();
 
-router.use("/user", userRouter);
+userRouter.get("/", (req, res) => {
+  res.send("User endpoint");
+});
 
 export { userRouter };
