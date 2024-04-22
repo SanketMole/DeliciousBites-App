@@ -1,9 +1,11 @@
 import { Router } from "express";
 
-const userRouter = Router();
+const router = Router();
 
-userRouter.get("/", (req, res) => {
-  res.send("User endpoint");
+router.get("/", (req, res) => {
+  res.json({
+    msg: "User endpoint",
+  });
 });
 
-export { userRouter };
+export { router };
