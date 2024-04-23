@@ -20,7 +20,10 @@ const App = () => {
             path="/more/:id"
             element={<More cart={cart} setcart={setcart} />}
           />
-          <Route path="/view" element={<View cart={cart} />} />
+          <Route
+            path="/view"
+            element={<View cart={cart} setcart={setcart} />}
+          />
         </Routes>
       </BrowserRouter>
     </div>
