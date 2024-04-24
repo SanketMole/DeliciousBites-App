@@ -17,7 +17,9 @@ const View = ({ cart, setcart }) => {
 
   const incrementQuantity = (itemId) => {
     const newCart = { ...cart }; // Create a copy of the cart
-    const item = newCart[itemId]; // Reference the correct item
+    const item = newCart[itemId];
+    // Reference the correct item
+
     if (item) {
       // Check if the item exists
       item.quantity += 1; // Increment the quantity

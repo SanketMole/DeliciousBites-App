@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import car from "../assets/cart.png";
+import dman from "../assets/dman.avif";
 
 export const Header = ({ cart }) => {
   const totalItemsInCart = Object.values(cart).reduce(
@@ -7,17 +8,23 @@ export const Header = ({ cart }) => {
     0
   );
   return (
-    <header className="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80 py-3 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg">
+    <header className="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80  shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg">
       <div className="px-2">
         <div className="flex items-center justify-between">
           <div className="flex shrink-0">
             <a aria-current="page" className="flex items-center">
               <img
-                className="h-16 w-22 w-auto"
+                src={dman}
+                alt="Boy riding a bike"
+                className=" h-16  w-22 mix-blend-multiply mr-3 -mx-2 rounded-l-3xl	" // Position and size of the GIF
+              />
+            </a>
+            <a aria-current="page" className="flex items-center">
+              <img
+                className="h-16 w-22 w-auto mix-blend-multiply	"
                 src="https://logodesign.business/wp-content/uploads/2019/11/Restaurant_logos-07.png"
                 alt=""
               />
-              <p className="sr-only">kjnekrn</p>
             </a>
           </div>
           <div className="hidden md:flex md:items-center md:justify-center md:gap-5">
@@ -35,7 +42,23 @@ export const Header = ({ cart }) => {
                 className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
                 href="/"
               >
-                Restaurant
+                Restaurants
+              </a>
+            </Link>
+            <Link to="/restaurantlist">
+              <a
+                className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
+                href="/"
+              >
+                About
+              </a>
+            </Link>
+            <Link to="/restaurantlist">
+              <a
+                className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
+                href="/"
+              >
+                Contact
               </a>
             </Link>
           </div>
