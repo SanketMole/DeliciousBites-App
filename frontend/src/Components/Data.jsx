@@ -1,7 +1,7 @@
 export const foodData = [
   {
     id: 11,
-    src: "https://media.istockphoto.com/id/1488738060/photo/south-indian-veg-thali.webp?b=1&s=170667a&w=0&k=20&c=gm_9MP4A3xZwuVI_Dzd7kkfHLSZ_HJZFiKrZS-Hg4S8=",
+    src: "https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2022/05/pjimage-30-1652290478.jpg",
     title: "Samosa",
     description:
       "Triangular pastry filled with spiced potatoes, peas, and sometimes meat, fried until golden brown and crispy.",
@@ -11,7 +11,7 @@ export const foodData = [
   },
   {
     id: 12,
-    src: "https://media.istockphoto.com/id/1488738060/photo/south-indian-veg-thali.webp?b=1&s=170667a&w=0&k=20&c=gm_9MP4A3xZwuVI_Dzd7kkfHLSZ_HJZFiKrZS-Hg4S8=",
+    src: "https://recipe30.com/wp-content/uploads/2023/03/chicken-Biryani-848x477.jpg",
     title: "Chicken Biryani",
     description:
       "Flavorful Indian rice dish cooked with aromatic basmati rice, chicken, and a blend of spices. Mostly made in Hyderabad",
@@ -21,7 +21,7 @@ export const foodData = [
   },
   {
     id: 13,
-    src: "https://media.istockphoto.com/id/1488738060/photo/south-indian-veg-thali.webp?b=1&s=170667a&w=0&k=20&c=gm_9MP4A3xZwuVI_Dzd7kkfHLSZ_HJZFiKrZS-Hg4S8=",
+    src: "https://img.onmanorama.com/content/dam/mm/en/food/recipe/images/2024/1/3/paneer-tikka.jpg",
     title: "Paneer Tikka Masala",
     description:
       "Spicy and creamy Indian curry made with grilled paneer (Indian cheese) and a rich tomato-based sauce.",
@@ -115,7 +115,7 @@ export const RatedFood = [
   {
     id: 1,
     imageUrl:
-      "https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/health/wp-content/uploads/2022/01/foods_to_eat_to_lose_weight.jpeg",
+      "https://media.istockphoto.com/id/1488738060/photo/south-indian-veg-thali.webp?b=1&s=170667a&w=0&k=20&c=gm_9MP4A3xZwuVI_Dzd7kkfHLSZ_HJZFiKrZS-Hg4S8=",
     title: "Chicken Tikka Masala",
     description:
       "Creamy and flavorful Indian curry dish with tender chicken pieces.",

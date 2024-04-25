@@ -5,6 +5,8 @@ import { Body } from "./Pages/Body";
 import RestaurantPage from "./Pages/RestaurantPage";
 import More from "./Pages/More";
 import View from "./Pages/View";
+import Login from "./Pages/Login";
+import HomePage from "./Pages/HomePage";
 
 const App = () => {
   const [cart, setcart] = useState({});
@@ -14,7 +16,10 @@ const App = () => {
       <BrowserRouter>
         <Header cart={cart} setcart={setcart} />
         <Routes>
-          <Route path="/" element={<Body cart={cart} setcart={setcart} />} />
+          <Route
+            path="/body"
+            element={<Body cart={cart} setcart={setcart} />}
+          />
           <Route path="/restaurantlist" element={<RestaurantPage />} />
           <Route
             path="/more/:id"
@@ -23,6 +28,11 @@ const App = () => {
           <Route
             path="/view"
             element={<View cart={cart} setcart={setcart} />}
+          />
+          <Route path="/" element={<Login cart={cart} setcart={setcart} />} />
+          <Route
+            path="/home"
+            element={<HomePage cart={cart} setcart={setcart} />}
           />
         </Routes>
       </BrowserRouter>

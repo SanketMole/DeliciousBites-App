@@ -16,7 +16,7 @@ const Restaurant = ({ swiggydata }) => {
           <p className="text-gray-700 text-base">{swiggydata.city}</p>
         </div>
         <Link to={`/more/${swiggydata.id}`}>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2 mx-4">
             Explore More
           </button>
         </Link>

@@ -1,14 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import car from "../assets/cart.png";
 import dman from "../assets/dman.avif";
 
 export const Header = ({ cart }) => {
+  const location = useLocation();
   const totalItemsInCart = Object.values(cart).reduce(
     (acc, curr) => acc + curr.quantity,
     0
   );
+
+  const isLoginPage = location.pathname === "/login";
+
   return (
-    <header className="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80  shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg">
+    <header className="fixed inset-x-0 top-0 z-30 mx-auto w-full h-18 max-w-screen-md border border-gray-100 bg-white/80 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg">
       <div className="px-2">
         <div className="flex items-center justify-between">
           <div className="flex shrink-0">
@@ -16,14 +20,7 @@ export const Header = ({ cart }) => {
               <img
                 src={dman}
                 alt="Boy riding a bike"
-                className=" h-16  w-22 mix-blend-multiply mr-3 -mx-2 rounded-l-3xl	" // Position and size of the GIF
-              />
-            </a>
-            <a aria-current="page" className="flex items-center">
-              <img
-                className="h-16 w-22 w-auto mix-blend-multiply	"
-                src="https://logodesign.business/wp-content/uploads/2019/11/Restaurant_logos-07.png"
-                alt=""
+                className="h-16 w-22 mix-blend-multiply mr-3 -mx-2 sm:rounded-l-3xl"
               />
             </a>
           </div>
@@ -31,7 +28,7 @@ export const Header = ({ cart }) => {
             <Link to="/">
               <a
                 aria-current="page"
-                className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900 "
+                className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
                 href="/"
               >
                 Home
@@ -75,13 +72,14 @@ export const Header = ({ cart }) => {
             >
               Login
             </a>
-            <div className="flex items-center">
-              <Link to="/view">
-                {" "}
-                <img className="h-10" src={car} alt="kd.png" />
-              </Link>
-              <p className="ml-2 font-bold">{totalItemsInCart}</p>
-            </div>
+            {!isLoginPage && ( // Hide this block on /login page
+              <div className="flex items-center">
+                <Link to="/view">
+                  <img className="h-10" src={car} alt="Cart icon" />
+                </Link>
+                <p className="ml-2 font-bold">{totalItemsInCart}</p>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -75,14 +75,14 @@ const View = ({ cart, setcart }) => {
                 <p>{item.description}</p>
 
                 <button
-                  className="border-2 border-black"
+                  className="border-2 border-black w-8"
                   onClick={() => incrementQuantity(itemId)} // Increment
                 >
                   +
                 </button>
 
                 <button
-                  className="border-2 border-black"
+                  className="border-2 border-black w-8  mx-2 "
                   onClick={() => decrementQuantity(itemId)} // Decrement
                 >
                   -
