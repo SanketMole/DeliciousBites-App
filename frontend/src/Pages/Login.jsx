@@ -78,20 +78,6 @@ const Login = () => {
                   placeholder="******************"
                 />
               </div>
-              <div className="md:w-1/2 md:ml-2">
-                <label
-                  className="block mb-1 text-sm font-bold text-gray-700 dark:text-white"
-                  htmlFor="c_password"
-                >
-                  Confirm Password
-                </label>
-                <input
-                  className="w-full px-2 py-1 text-sm text-gray-700 dark:text-white border rounded focus:outline-none focus:shadow-outline"
-                  id="c_password"
-                  type="password"
-                  placeholder="******************"
-                />
-              </div>
             </div>
             <div className="text-center mt-4">
               <button

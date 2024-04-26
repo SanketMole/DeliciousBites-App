@@ -69,8 +69,8 @@ export const Body = ({ cart, setcart }) => {
   }
 
   return (
-    <div>
-      <div className="flex justify-center">
+    <div className="bg-gray-100">
+      <div className="flex justify-center ">
         <div className="my-20  h-30 text-center  ">
           <div className="flex my-14 mx-4  px-2 h-16 sm:h-14  py-3   sm:ml-4 border-4 border-blue-900 overflow-hidden  rounded-2xl font-[sans-serif]">
             <input

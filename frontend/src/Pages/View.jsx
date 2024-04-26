@@ -1,108 +1,139 @@
 import React, { useEffect, useState } from "react";
+import del from "../assets/del.png";
 
 const View = ({ cart, setcart }) => {
-  const [cartItemsArray, setCartItemsArray] = useState([]);
+  const [cartItemsArray, setcartItemsArray] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-    const cartArray = Object.values(cart); // Convert the cart object into an array
-    setCartItemsArray(cartArray); // Update the state with the new array
+    // Convert cart object to array and calculate the total price
+    const cartArray = Object.values(cart);
+    setcartItemsArray(cartArray);
 
-    // Calculate total price
     const total = cartArray.reduce((acc, item) => {
       return acc + item.price * item.quantity;
     }, 0);
+
     setTotalPrice(total);
-  }, [cart]); // Re-run effect when cart changes
+  }, [cart]);
 
   const incrementQuantity = (itemId) => {
-    const newCart = { ...cart }; // Create a copy of the cart
+    const newCart = { ...cart };
     const item = newCart[itemId];
-    // Reference the correct item
 
     if (item) {
-      // Check if the item exists
-      item.quantity += 1; // Increment the quantity
-      setcart(newCart); // Update the cart state
+      item.quantity += 1; // Increment quantity
+      setcart(newCart);
     }
   };
 
   const decrementQuantity = (itemId) => {
-    const newCart = { ...cart }; // Create a copy of the cart
-    const item = newCart[itemId]; // Reference the correct item
+    const newCart = { ...cart };
+    const item = newCart[itemId];
+
     if (item && item.quantity > 1) {
-      // Ensure quantity doesn't go below 1
-      item.quantity -= 1; // Decrement the quantity
-      setcart(newCart); // Update the cart state
+      item.quantity -= 1; // Decrement quantity
+      setcart(newCart);
     } else if (item && item.quantity === 1) {
-      // Optional: remove item if quantity reaches 0
-      removeItem(itemId);
+      removeItem(itemId); // Remove item if quantity is 1
     }
   };
 
   const removeItem = (itemId) => {
-    const newCart = { ...cart }; // Create a copy of the cart
-    delete newCart[itemId]; // Delete the item by ID
-    setcart(newCart); // Update the cart state
+    const newCart = { ...cart };
+    delete newCart[itemId]; // Delete item
+    setcart(newCart);
   };
 
   return (
-    <div className="container mx-auto py-8">
-      {cartItemsArray.length === 0 ? (
-        <div>No items in the cart</div>
-      ) : (
-        <>
-          {cartItemsArray.map((item, index) => {
-            // Get the correct key for this item
-            const itemId = Object.keys(cart)[index];
+    <div className="h-screen bg-gray-100 pt-20">
+      <h1 className="mb-10 text-center text-2xl font-bold">Cart Items</h1>
+      <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
+        <div className="md:w-2/3">
+          {cartItemsArray.length === 0 ? (
+            <div className="text-center">No items in the cart</div>
+          ) : (
+            cartItemsArray.map((item, index) => {
+              const itemId = Object.keys(cart)[index];
 
-            return (
-              <div
-                key={itemId}
-                className="mb-4 p-4 border rounded-lg shadow-md"
-              >
-                <h2 className="text-xl font-semibold mb-2">Item {index + 1}</h2>
-                <p className="text-gray-700 mb-2">Quantity: {item.quantity}</p>
-                <div className="flex justify-end">
+              return (
+                <div
+                  key={itemId}
+                  className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start"
+                >
                   <img
                     src={item.image}
-                    alt={`Item ${index + 1}`}
-                    className="h-44"
+                    alt={`product-image`}
+                    className="w-full rounded-lg sm:w-40"
                   />
+                  <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
+                    <div>
+                      <h2 className="text-lg font-bold text-gray-900">
+                        {item.title}
+                      </h2>
+                      <p className="mt-1 text-xs text-gray-700">
+                        {item.description}
+                      </p>
+                    </div>
+                    <div className="flex justify-between sm:mt-0 sm:block sm:space-x-6">
+                      <div className="flex items-center border-gray-100">
+                        <button
+                          className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-white"
+                          onClick={() => decrementQuantity(itemId)}
+                        >
+                          -
+                        </button>
+                        <input
+                          className="h-8 w-8 border bg-white text-center text-xs outline-none"
+                          type="number"
+                          value={item.quantity}
+                          readOnly
+                        />
+                        <button
+                          className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-white"
+                          onClick={() => incrementQuantity(itemId)}
+                        >
+                          +
+                        </button>
+                      </div>
+                      <div className="flex items-center space-x-4">
+                        <p className="text-sm">{item.price * item.quantity}</p>
+                      </div>
+                    </div>
+                    <button
+                      className="mb-16 -mt-2 transition-transform transform hover:scale-110 duration-200 ease-in-out"
+                      onClick={() => removeItem(itemId)}
+                    >
+                      <img src={del} alt="Delete item" />
+                    </button>
+                  </div>
                 </div>
-                <p>Total Price: {item.price * item.quantity} Rupees</p>
-                <p>{item.title}</p>
-                <p>{item.description}</p>
-
-                <button
-                  className="border-2 border-black w-8"
-                  onClick={() => incrementQuantity(itemId)} // Increment
-                >
-                  +
-                </button>
-
-                <button
-                  className="border-2 border-black w-8  mx-2 "
-                  onClick={() => decrementQuantity(itemId)} // Decrement
-                >
-                  -
-                </button>
-
-                <button
-                  className="border-2 border-black"
-                  onClick={() => removeItem(itemId)} // Remove
-                >
-                  Remove
-                </button>
-              </div>
-            );
-          })}
-
-          <div className="text-xl font-semibold mb-4">
-            Total Cart Price: {totalPrice} Rupees
+              );
+            })
+          )}
+        </div>
+        <div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:w-1/3">
+          <div className="flex justify-between mb-2">
+            <p className="text-gray-700">Subtotal</p>
+            <p className="text-gray-700">{totalPrice} ₹</p>
           </div>
-        </>
-      )}
+          <div className="flex justify-between">
+            <p className="text-gray-700">GST</p>
+            <p className="text-gray-700"> ₹10</p>
+          </div>
+          <hr className="my-4" />
+          <div className="flex justify-between">
+            <p className="text-lg font-bold">Total</p>
+            <div>
+              <p className="mb-1 text-lg font-bold">{totalPrice + 10} ₹</p>
+              <p className="text-sm text-gray-700">Including GST</p>
+            </div>
+          </div>
+          <button className="mt-6 w-full rounded-md bg-blue-500 py-1.5 text-white font-medium hover:bg-blue-600">
+            Check out
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

@@ -31,7 +31,7 @@ export const foodData = [
   },
   {
     id: 14,
-    src: "https://media.istockphoto.com/id/1488738060/photo/south-indian-veg-thali.webp?b=1&s=170667a&w=0&k=20&c=gm_9MP4A3xZwuVI_Dzd7kkfHLSZ_HJZFiKrZS-Hg4S8=",
+    src: "https://www.kitchensanctuary.com/wp-content/uploads/2021/05/Chicken-Korma-square-FS-74.jpg",
     title: "Chicken Korma",
     description:
       "Mildly spiced Indian curry dish made with tender chicken pieces cooked in a creamy coconut-based sauce.",
@@ -41,7 +41,7 @@ export const foodData = [
   },
   {
     id: 15,
-    src: "https://media.istockphoto.com/id/1488738060/photo/south-indian-veg-thali.webp?b=1&s=170667a&w=0&k=20&c=gm_9MP4A3xZwuVI_Dzd7kkfHLSZ_HJZFiKrZS-Hg4S8=",
+    src: "https://t4.ftcdn.net/jpg/04/69/92/45/360_F_469924515_jEhaqZ410SU9tumaQfb5blSzJdAgHn0x.jpg",
     title: "Pani Puri",
     description:
       "Popular Indian street food snack consisting of hollow puri shells filled with spicy tamarind water, chickpeas, potatoes, and other fillings.",
@@ -61,7 +61,7 @@ export const foodData = [
   },
   {
     id: 17,
-    src: "https://media.istockphoto.com/id/1488738060/photo/south-indian-veg-thali.webp?b=1&s=170667a&w=0&k=20&c=gm_9MP4A3xZwuVI_Dzd7kkfHLSZ_HJZFiKrZS-Hg4S8=",
+    src: "https://www.shutterstock.com/image-photo/potato-stuffed-flat-bread-aloo-600nw-2152108747.jpg",
     title: "Aloo Paratha",
     description:
       "Indian flatbread stuffed with spiced mashed potatoes, rolled out, and cooked on a hot griddle until golden brown and crispy.",
@@ -71,7 +71,7 @@ export const foodData = [
   },
   {
     id: 18,
-    src: "https://media.istockphoto.com/id/1488738060/photo/south-indian-veg-thali.webp?b=1&s=170667a&w=0&k=20&c=gm_9MP4A3xZwuVI_Dzd7kkfHLSZ_HJZFiKrZS-Hg4S8=",
+    src: "https://www.indianhealthyrecipes.com/wp-content/uploads/2021/10/fish-curry-recipe.jpg",
     title: "Fish Curry",
     description:
       "Spicy and tangy Indian curry made with fish pieces cooked in a flavorful tomato and coconut-based sauce.",
@@ -81,7 +81,7 @@ export const foodData = [
   },
   {
     id: 19,
-    src: "https://media.istockphoto.com/id/1488738060/photo/south-indian-veg-thali.webp?b=1&s=170667a&w=0&k=20&c=gm_9MP4A3xZwuVI_Dzd7kkfHLSZ_HJZFiKrZS-Hg4S8=",
+    src: "https://www.chefkunalkapur.com/wp-content/uploads/2023/11/DSC07512-1300x731.jpg?v=1699167800",
     title: "Vegetable Biryani",
     description:
       "Fragrant Indian rice dish cooked with aromatic basmati rice, mixed vegetables, and a blend of spices.",
@@ -91,7 +91,7 @@ export const foodData = [
   },
   {
     id: 20,
-    src: "https://media.istockphoto.com/id/1488738060/photo/south-indian-veg-thali.webp?b=1&s=170667a&w=0&k=20&c=gm_9MP4A3xZwuVI_Dzd7kkfHLSZ_HJZFiKrZS-Hg4S8=",
+    src: "https://www.indianhealthyrecipes.com/wp-content/uploads/2022/06/chicken-tikka-kebab.jpg",
     title: "Chicken Tikka",
     description:
       "Marinated chunks of chicken skewered and grilled until charred and flavorful, often served with mint chutney.",
@@ -101,7 +101,7 @@ export const foodData = [
   },
   {
     id: 21,
-    src: "https://media.istockphoto.com/id/1488738060/photo/south-indian-veg-thali.webp?b=1&s=170667a&w=0&k=20&c=gm_9MP4A3xZwuVI_Dzd7kkfHLSZ_HJZFiKrZS-Hg4S8=",
+    src: "https://www.whiskaffair.com/wp-content/uploads/2020/06/Palak-Paneer-Bhurji-2-3.jpg",
     title: "Paneer Bhurji",
     description:
       "Creamy Indian curry made with spinach and paneer (Indian cheese), seasoned with aromatic spices.",
