@@ -4,10 +4,8 @@ import dman from "../assets/dman.avif";
 
 export const Header = ({ cart }) => {
   const location = useLocation();
-  const totalItemsInCart = Object.values(cart).reduce(
-    (acc, curr) => acc + curr.quantity,
-    0
-  );
+
+  const uniqueItemsInCart = Object.keys(cart).length;
 
   const isLoginPage = location.pathname === "/";
 
@@ -26,58 +24,42 @@ export const Header = ({ cart }) => {
           </div>
           <div className="hidden md:flex md:items-center md:justify-center md:gap-5">
             <Link to="/">
-              <a
+              <span
                 aria-current="page"
                 className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
-                href="/"
               >
                 Home
-              </a>
+              </span>
             </Link>
             <Link to="/restaurantlist">
-              <a
-                className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
-                href="/"
-              >
+              <span className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900">
                 Restaurants
-              </a>
+              </span>
             </Link>
-            <Link to="/restaurantlist">
-              <a
-                className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
-                href="/"
-              >
+            <Link to="/about">
+              <span className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900">
                 About
-              </a>
+              </span>
             </Link>
-            <Link to="/restaurantlist">
-              <a
-                className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
-                href="/"
-              >
+            <Link to="/contact">
+              <span className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900">
                 Contact
-              </a>
+              </span>
             </Link>
           </div>
           <div className="flex items-center justify-end gap-3">
-            <a
-              className="hidden items-center justify-center rounded-xl bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-gray-50 sm:inline-flex"
-              href=""
-            >
+            <span className="hidden items-center justify-center rounded-xl bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-gray-50 sm:inline-flex">
               Sign in
-            </a>
-            <a
-              className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-              href=""
-            >
+            </span>
+            <span className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500">
               Login
-            </a>
-            {!isLoginPage && ( // Hide this block on /login page
+            </span>
+            {!isLoginPage && (
               <div className="flex items-center">
                 <Link to="/view">
                   <img className="h-10" src={car} alt="Cart icon" />
                 </Link>
-                <p className="ml-2 font-bold">{totalItemsInCart}</p>
+                <p className="ml-2 font-bold">{uniqueItemsInCart}</p>
               </div>
             )}
           </div>
