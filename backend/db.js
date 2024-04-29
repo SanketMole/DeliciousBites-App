@@ -1,4 +1,15 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+dotenv.config({ path: "../env" });
+
+console.log(process.env.MONGO_URI);
+
+try {
+  mongoose.connect(process.env.MONGO_URI);
+} catch (err) {
+  console.log(err);
+}
 
 const userSchema = new mongoose.Schema({
   userName: {
