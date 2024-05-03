@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-dotenv.config({ path: "../env" });
+dotenv.config({ path: "../.env" });
 
 console.log(process.env.MONGO_URI);
 
@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-    minLength: 8,
+    minLength: 5,
   },
   firstName: {
     type: String,

@@ -1,1 +1,1 @@
-export default JWT_SECREt = "02032004";
+export const JWT_SECRET = "02032004";

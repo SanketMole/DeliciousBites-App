@@ -2,7 +2,7 @@ import { Router } from "express";
 
 const router = Router();
 
-router.get("/signup", (req, res) => {
+router.get("/signupcc", (req, res) => {
   res.json({
     msg: "User endpoint",
   });
