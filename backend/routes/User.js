@@ -1,5 +1,5 @@
 import express from "express";
-import zod from "zod";
+import zod, { Schema } from "zod";
 import { User } from "../db.js";
 import jwt from "jsonwebtoken";
 import { JWT_SECRET } from "../config.js";
@@ -61,6 +61,45 @@ UserRouter.post("/signup", async (req, res) => {
   }
 });
 
-console.log("dfndkj");
+//................................................................................................................................................
+
+const signinSchema = zod.object({
+  userName: zod.string().email(),
+  password: zod.string(),
+});
+UserRouter.post("/signin", async (req, res) => {
+  const validation = signinSchema.safeParse(req.body);
+
+  if (!validation.success) {
+    return res.status(400).json({
+      msg: "Invalid input",
+      errors: validation.error.issues,
+    });
+  }
+
+  const { userName, password } = req.body;
+
+  const user = await User.findOne({
+    userName,
+    password,
+  });
+
+  if (user) {
+    const token = jwt.sign(
+      {
+        id: user._id,
+      },
+      JWT_SECRET
+    );
+    return res.json({
+      msg: "Here is your token",
+      token,
+    });
+  } else {
+    res.json({
+      msg: "User Not Logged in",
+    });
+  }
+});
 
 export default UserRouter;
