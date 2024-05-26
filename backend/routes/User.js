@@ -3,6 +3,7 @@ import zod, { Schema } from "zod";
 import { User } from "../db.js";
 import jwt from "jsonwebtoken";
 import { JWT_SECRET } from "../config.js";
+import authMiddleware from "../authMiddleware.js";
 
 const UserRouter = express.Router();
 console.log("fjfnkj");
@@ -87,7 +88,7 @@ UserRouter.post("/signin", async (req, res) => {
   if (user) {
     const token = jwt.sign(
       {
-        id: user._id,
+        UserId: user._id,
       },
       JWT_SECRET
     );
@@ -100,6 +101,30 @@ UserRouter.post("/signin", async (req, res) => {
       msg: "User Not Logged in",
     });
   }
+});
+
+//...............................................................................................................................
+
+const updateBody = zod.object({
+  password: zod.string().optional(),
+  firstName: zod.string().optional(),
+  lastName: zod.string().optional(),
+});
+
+UserRouter.put("/update", authMiddleware, async (req, res) => {
+  const { success } = updateBody.safeParse(req.body);
+  if (!success) {
+    res.status(411).json({
+      message: "Error while updating information",
+    });
+  }
+
+  await User.updateOne({ _id: req.UserId }, req.body);
+  console.log(req.UserId);
+
+  res.json({
+    message: "Updated successfully",
+  });
 });
 
 export default UserRouter;
