@@ -5,6 +5,7 @@ import { RatedFood, foodData } from "../Components/Data";
 import { useNavigate } from "react-router-dom";
 
 import SkeletonLoader from "../Components/SkeletonLoader";
+import HomePage from "./HomePage";
 
 export const Body = ({ cart, setcart }) => {
   const [val, setVal] = useState("");

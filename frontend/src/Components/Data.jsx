@@ -1,7 +1,7 @@
 export const foodData = [
   {
     id: 11,
-    src: "https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2022/05/pjimage-30-1652290478.jpg",
+    src: "https://img.freepik.com/premium-photo/veg-samosa-is-indian-popular-snack-junk-food-served-with-fried-green-chilly-onion-chutney-ketchup_466689-13439.jpg?w=996",
     title: "Samosa",
     description:
       "Triangular pastry filled with spiced potatoes, peas, and sometimes meat, fried until golden brown and crispy.",
@@ -11,7 +11,7 @@ export const foodData = [
   },
   {
     id: 12,
-    src: "https://recipe30.com/wp-content/uploads/2023/03/chicken-Biryani-848x477.jpg",
+    src: "https://img.freepik.com/free-photo/close-up-appetizing-ramadan-meal_23-2151182540.jpg?t=st=1716985456~exp=1716989056~hmac=d69467e2cc3c2e97312eff66fba3d77e93e165205a91363e31a30a6ce4579d90&w=996",
     title: "Chicken Biryani",
     description:
       "Flavorful Indian rice dish cooked with aromatic basmati rice, chicken, and a blend of spices. Mostly made in Hyderabad",
@@ -241,25 +241,31 @@ export const RestaurantList = [
         id: 1,
         name: "Butter Chicken",
         price: 250,
-        description: "Delicious chicken cooked in a creamy, buttery sauce.",
+        description:
+          "Delicious chicken cooked in a creamy, buttery chicken enjoy your meal at very best with this dish. Order Now",
+        image_url:
+          "https://img.freepik.com/premium-photo/savor-delight-exquisite-lamb-beef-curry-rendang-ready-be-relished-eid-aladha_240109-1865.jpg?w=996",
       },
       {
         id: 2,
         name: "Manchurian",
         price: 200,
         description:
-          "Crispy vegetable Manchurian balls tossed in a tangy sauce.",
+          "Crispy vegetable Manchurian balls tossed in a tangy sauce . Order Now in our Restaurant and enjoy your meal",
+        image_url:
+          "https://img.freepik.com/free-photo/meatballs-sweet-sour-tomato-sauce_2829-19545.jpg?t=st=1716986255~exp=1716989855~hmac=a2cd89a9c381ee738e9e2674ec9c6724aabe3393d5fdbd5c2eb5a993a6500692&w=996",
       },
       {
         id: 3,
         name: "Pasta Alfredo",
         price: 300,
         description:
-          "Creamy pasta cooked with Alfredo sauce and topped with Parmesan cheese.",
+          "Creamy pasta cooked with Alfredo sauce and topped with Parmesan cheese. Order Now in our Restaurant and enjoy your meal",
+        image_url:
+          "https://img.freepik.com/free-photo/mushroom-risotto-garnished-with-grated-parmesan-parsley_141793-1932.jpg?t=st=1716986308~exp=1716989908~hmac=05bf2b067750bb8cdba61cfddcd8b1e6e162693a68e5ad7e738772712c011684&w=996",
       },
     ],
   },
-
   {
     id: 3,
     city: "Bangalore",
@@ -276,21 +282,25 @@ export const RestaurantList = [
         id: 7,
         name: "Masala Dosa",
         price: 120,
-        description: "Crispy rice crepe filled with a spicy potato filling.",
+        description:
+          "Crispy rice crepe filled with a spicy potato filling. Order Now in our Restaurant and enjoy your meal",
+        image_url: "https://example.com/masala-dosa.jpg",
       },
       {
         id: 8,
         name: "Bisi Bele Bath",
         price: 150,
         description:
-          "A traditional Karnataka dish made with rice, lentils, vegetables, and spices.",
+          "A traditional Karnataka dish made with rice, lentils, vegetables, and spices. Order Now in our Restaurant and enjoy your meal",
+        image_url: "https://example.com/bisi-bele-bath.jpg",
       },
       {
         id: 9,
         name: "Gobi Manchurian",
         price: 180,
         description:
-          "Crispy cauliflower florets tossed in a spicy and tangy sauce.",
+          "Crispy cauliflower florets tossed in a spicy and tangy sauce. Order Now in our Restaurant and enjoy your meal",
+        image_url: "https://example.com/gobi-manchurian.jpg",
       },
     ],
   },
@@ -311,14 +321,16 @@ export const RestaurantList = [
         name: "Chicken Biryani",
         price: 300,
         description:
-          "Fragrant basmati rice cooked with succulent chicken pieces and aromatic spices.",
+          "Fragrant basmati rice cooked with succulent chicken pieces and aromatic spices. Order Now in our Restaurant and enjoy your meal",
+        image_url: "https://example.com/chicken-biryani.jpg",
       },
       {
         id: 11,
         name: "Mutton Biryani",
         price: 350,
         description:
-          "Tender mutton pieces marinated in spices, layered with rice, and slow-cooked to perfection.",
+          "Tender mutton pieces marinated in spices, layered with rice, and slow-cooked to perfection. Order Now in our Restaurant and enjoy your meal",
+        image_url: "https://example.com/mutton-biryani.jpg",
       },
       {
         id: 12,
@@ -326,6 +338,7 @@ export const RestaurantList = [
         price: 250,
         description:
           "A flavorful rice dish cooked with assorted vegetables and aromatic spices.",
+        image_url: "https://example.com/veg-biryani.jpg",
       },
     ],
   },
@@ -347,6 +360,7 @@ export const RestaurantList = [
         price: 280,
         description:
           "A spicy and tangy curry made with fresh fish and traditional South Indian spices.",
+        image_url: "https://example.com/fish-curry.jpg",
       },
       {
         id: 14,
@@ -354,6 +368,7 @@ export const RestaurantList = [
         price: 320,
         description:
           "Crispy fried prawns marinated with spices and herbs, perfect as an appetizer or side dish.",
+        image_url: "https://example.com/prawn-fry.jpg",
       },
       {
         id: 15,
@@ -361,6 +376,7 @@ export const RestaurantList = [
         price: 250,
         description:
           "A popular spicy and flavorful chicken appetizer, perfect for spice lovers.",
+        image_url: "https://example.com/chicken-65.jpg",
       },
     ],
   },
@@ -382,6 +398,7 @@ export const RestaurantList = [
         price: 320,
         description:
           "Aromatic basmati rice cooked with succulent chicken pieces, saffron, and spices.",
+        image_url: "https://example.com/hyderabadi-chicken-biryani.jpg",
       },
       {
         id: 17,
@@ -389,6 +406,7 @@ export const RestaurantList = [
         price: 350,
         description:
           "Tender mutton pieces cooked with fragrant basmati rice and a blend of spices, slow-cooked to perfection.",
+        image_url: "https://example.com/mutton-dum-biryani.jpg",
       },
       {
         id: 18,
@@ -396,6 +414,7 @@ export const RestaurantList = [
         price: 250,
         description:
           "A delightful combination of fresh vegetables and aromatic spices cooked with long-grain basmati rice.",
+        image_url: "https://example.com/vegetable-biryani.jpg",
       },
     ],
   },
@@ -417,6 +436,7 @@ export const RestaurantList = [
         price: 200,
         description:
           "A traditional Rajasthani dish consisting of lentils, baked wheat rolls (baati), and a sweet dessert made from wheat flour (churma).",
+        image_url: "https://example.com/dal-baati-churma.jpg",
       },
       {
         id: 20,
@@ -424,6 +444,7 @@ export const RestaurantList = [
         price: 300,
         description:
           "A spicy mutton curry cooked with traditional Rajasthani spices, known for its vibrant red color.",
+        image_url: "https://example.com/laal-maas.jpg",
       },
       {
         id: 21,
@@ -431,6 +452,7 @@ export const RestaurantList = [
         price: 180,
         description:
           "A flavorful Rajasthani dish made from gram flour (besan) dumplings cooked in a spicy yogurt-based gravy.",
+        image_url: "https://example.com/gatte-ki-sabji.jpg",
       },
     ],
   },
@@ -452,6 +474,7 @@ export const RestaurantList = [
         price: 150,
         description:
           "A popular Mumbai street food dish consisting of mashed mixed vegetables cooked with spices and served with buttered bread rolls (pav).",
+        image_url: "https://example.com/pav-bhaji.jpg",
       },
       {
         id: 23,
@@ -459,6 +482,7 @@ export const RestaurantList = [
         price: 180,
         description:
           "A spicy curry made from sprouted moth beans (matki) and served with pav, topped with various crunchy toppings.",
+        image_url: "https://example.com/misal-pav.jpg",
       },
       {
         id: 24,
@@ -466,6 +490,7 @@ export const RestaurantList = [
         price: 120,
         description:
           "A savory multi-grain pancake made from a mixture of flours, spices, and herbs, typically served with yogurt or chutney.",
+        image_url: "https://example.com/thalipeeth.jpg",
       },
     ],
   },
@@ -487,6 +512,7 @@ export const RestaurantList = [
         price: 100,
         description:
           "A steamed savory cake made from fermented rice and chickpea flour, typically served with chutney.",
+        image_url: "https://example.com/dhokla.jpg",
       },
       {
         id: 26,
@@ -494,6 +520,7 @@ export const RestaurantList = [
         price: 120,
         description:
           "A savory snack made from gram flour (besan) and yogurt, seasoned with mustard and sesame seeds.",
+        image_url: "https://example.com/khandvi.jpg",
       },
       {
         id: 27,
@@ -501,6 +528,7 @@ export const RestaurantList = [
         price: 180,
         description:
           "A traditional Gujarati mixed vegetable curry made from seasonal vegetables, fenugreek dumplings (muthiya), and spices.",
+        image_url: "https://example.com/undhiyu.jpg",
       },
     ],
   },
@@ -521,6 +549,7 @@ export const RestaurantList = [
         price: 350,
         description:
           "A flavorful and tangy coconut-based curry made with fresh fish and traditional Goan spices.",
+        image_url: "https://example.com/goan-fish-curry.jpg",
       },
       {
         id: 29,
@@ -528,6 +557,7 @@ export const RestaurantList = [
         price: 380,
         description:
           "A spicy and tangy prawn pickle preparation made with a blend of vinegar, spices, and dried shrimp.",
+        image_url: "https://example.com/prawn-balchao.jpg",
       },
       {
         id: 30,
@@ -535,6 +565,7 @@ export const RestaurantList = [
         price: 400,
         description:
           "A classic Goan dish featuring tender beef marinated in a spicy and tangy sauce made from vinegar, garlic, and spices.",
+        image_url: "https://example.com/beef-vindaloo.jpg",
       },
     ],
   },
@@ -555,6 +586,7 @@ export const RestaurantList = [
         price: 300,
         description:
           "A melt-in-your-mouth kebab made from finely ground minced meat (usually lamb or beef) marinated with papaya and a blend of spices, then shallow fried.",
+        image_url: "https://example.com/galouti-kebab.jpg",
       },
       {
         id: 32,
@@ -562,6 +594,7 @@ export const RestaurantList = [
         price: 320,
         description:
           "A fragrant rice dish cooked with aromatic spices, tender meat (usually chicken or mutton), and saffron-infused milk, served with raita and salad.",
+        image_url: "https://example.com/lucknawi-biryani.jpg",
       },
       {
         id: 33,
@@ -569,6 +602,7 @@ export const RestaurantList = [
         price: 80,
         description:
           "A traditional Lucknowi sweet bread made from flour, milk, sugar, and saffron, often enjoyed with kebabs or spicy curries.",
+        image_url: "https://example.com/sheermal.jpg",
       },
     ],
   },
@@ -590,6 +624,7 @@ export const RestaurantList = [
         price: 120,
         description:
           "A crispy, golden-brown crepe made from fermented rice and lentil batter, filled with a spicy potato filling and served with chutney and sambar.",
+        image_url: "https://example.com/masala-dosa.jpg",
       },
       {
         id: 35,
@@ -597,6 +632,7 @@ export const RestaurantList = [
         price: 100,
         description:
           "Soft and fluffy steamed rice cakes (idli) served with a flavorful lentil-based stew (sambar) and coconut chutney.",
+        image_url: "https://example.com/idli-sambar.jpg",
       },
       {
         id: 36,
@@ -604,6 +640,7 @@ export const RestaurantList = [
         price: 150,
         description:
           "A popular North Indian dish consisting of spicy chickpea curry (chole) served with deep-fried bread (bhature), often accompanied by pickles and onions.",
+        image_url: "https://example.com/chole-bhature.jpg",
       },
     ],
   },

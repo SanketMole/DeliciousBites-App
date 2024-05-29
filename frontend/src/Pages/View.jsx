@@ -40,9 +40,13 @@ const View = ({ cart, setcart }) => {
   };
 
   const removeItem = (itemId) => {
-    const newCart = { ...cart };
-    delete newCart[itemId]; // Delete item
-    setcart(newCart);
+    const del = confirm("Are u Sure ,You Want to Remove from Cart ");
+    if (del) {
+      const newCart = { ...cart };
+      delete newCart[itemId]; // Delete item
+      setcart(newCart);
+    } else {
+    }
   };
 
   return (
@@ -59,7 +63,7 @@ const View = ({ cart, setcart }) => {
               return (
                 <div
                   key={itemId}
-                  className="justify-between my-4 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start transition-transform transform hover:scale-105 hover:shadow-"
+                  className="justify-between my-4 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start transition-transform transform  hover:shadow-xl"
                 >
                   <img
                     src={item.image}
@@ -104,7 +108,11 @@ const View = ({ cart, setcart }) => {
                       className="mb-16 -mt-2 transition-transform transform hover:scale-110 duration-200 ease-in-out"
                       onClick={() => removeItem(itemId)}
                     >
-                      <img className="w-24 -my-8" src={del} alt="Delete item" />
+                      <img
+                        className="w-20 -my-8 ml-4 "
+                        src={del}
+                        alt="Delete item"
+                      />
                     </button>
                   </div>
                 </div>
