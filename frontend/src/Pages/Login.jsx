@@ -1,6 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 const Login = () => {
+  const [firstName, setfirstName] = useState("");
+  const [lastName, setlastName] = useState("");
+  const [userName, setuserName] = useState("");
+  const [password, setpassword] = useState("");
+
+  async function handleRegister() {
+    console.log(firstName);
+    const response = await axios.post("http://localhost:3000/api/v1/signup", {
+      firstName,
+      lastName,
+      password,
+      userName,
+    });
+
+    console.log(response.data);
+  }
+
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-400 dark:bg-gray-900 p-2">
       {/* Container */}
@@ -28,6 +46,9 @@ const Login = () => {
                   First Name
                 </label>
                 <input
+                  onChange={(e) => {
+                    setfirstName(e.target.value);
+                  }}
                   className="  w-full px-2 py-1 text-sm text-gray-700 border rounded focus:outline-none focus:shadow-outline"
                   id="firstName"
                   type="text"
@@ -42,6 +63,9 @@ const Login = () => {
                   Last Name
                 </label>
                 <input
+                  onChange={(e) => {
+                    setlastName(e.target.value);
+                  }}
                   className="w-full px-2 py-1 text-sm text-gray-700 font-bold border rounded focus:outline-none focus:shadow-outline"
                   id="lastName"
                   type="text"
@@ -57,6 +81,9 @@ const Login = () => {
                 Email
               </label>
               <input
+                onChange={(e) => {
+                  setuserName(e.target.value);
+                }}
                 className="w-full px-2 py-1 text-sm text-gray-700 dark:text-white border rounded focus:outline-none focus:shadow-outline"
                 id="email"
                 type="email"
@@ -72,6 +99,9 @@ const Login = () => {
                   Password
                 </label>
                 <input
+                  onChange={(e) => {
+                    setpassword(e.target.value);
+                  }}
                   className="w-full px-2 py-1 text-sm text-gray-700 dark:text-white border rounded focus:outline-none focus:shadow-outline"
                   id="password"
                   type="password"
@@ -81,6 +111,7 @@ const Login = () => {
             </div>
             <div className="text-center mt-4">
               <button
+                onClick={handleRegister}
                 className="w-full px-3 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-900"
                 type="button"
               >
