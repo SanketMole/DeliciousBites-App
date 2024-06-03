@@ -1,24 +1,12 @@
 import React, { useState } from "react";
-import axios from "axios";
 
 const Login = () => {
-  const [firstName, setfirstName] = useState("");
-  const [lastName, setlastName] = useState("");
-  const [userName, setuserName] = useState("");
-  const [password, setpassword] = useState("");
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
 
-  async function handleRegister() {
-    console.log(firstName);
-    const response = await axios.post("http://localhost:3000/api/v1/signup", {
-      firstName,
-      lastName,
-      password,
-      userName,
-    });
-
-    console.log(response.data);
-    alert(response.data.msg);
-  }
+  const handleRegister = () => {
+    // Add registration logic here
+  };
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-400 dark:bg-gray-900 p-2">
@@ -26,89 +14,51 @@ const Login = () => {
       <div className="flex w-full max-w-xl lg:w-2/3 bg-white dark:bg-gray-700 rounded-lg shadow-lg">
         {/* Image Column */}
         <div
-          className="hidden lg:block  w-96  bg-cover rounded-l-lg"
+          className="hidden lg:block w-96 bg-cover rounded-l-lg"
           style={{
             backgroundImage:
               "url('https://img.freepik.com/premium-photo/paneer-tikka-is-indian-dish-made-from-chunks-cottage-cheese-marinated-spices-grilled-tandoor_466689-76797.jpg?w=360')",
           }}
         />
         {/* Form Column */}
-        <div className="w-3/4 p-6 ">
-          <h3 className="py-2 text-xl text-centerc text-gray-800 dark:text-white">
+        <div className="w-3/4 p-6">
+          <h3 className="py-2 text-xl text-center text-gray-800 dark:text-white">
             Create an Account!
           </h3>
-          <form className="mt-4 ">
-            <div className="mb-4 md:flex md:justify-between">
-              <div className="md:w-1/2 md:mr-2">
-                <label
-                  className="block mb-1 text-sm font-bold text-gray-700 dark:text-white"
-                  htmlFor="firstName"
-                >
-                  First Name
-                </label>
-                <input
-                  onChange={(e) => {
-                    setfirstName(e.target.value);
-                  }}
-                  className="  w-full px-2 py-1 text-sm text-gray-700 border rounded focus:outline-none focus:shadow-outline"
-                  id="firstName"
-                  type="text"
-                  placeholder="First Name"
-                />
-              </div>
-              <div className="md:w-1/2 md:ml-2">
-                <label
-                  className="block mb-1 text-sm font-bold text-gray-700 dark:text-white"
-                  htmlFor="lastName"
-                >
-                  Last Name
-                </label>
-                <input
-                  onChange={(e) => {
-                    setlastName(e.target.value);
-                  }}
-                  className="w-full px-2 py-1 text-sm text-gray-700 font-bold border rounded focus:outline-none focus:shadow-outline"
-                  id="lastName"
-                  type="text"
-                  placeholder="Last Name"
-                />
-              </div>
+          <form className="mt-4">
+            <div className="mb-4">
+              <label
+                className="block mb-1 text-sm font-bold text-gray-700 dark:text-white"
+                htmlFor="userName"
+              >
+                User Name
+              </label>
+              <input
+                onChange={(e) => {
+                  setUserName(e.target.value);
+                }}
+                className="w-full px-2 py-1 text-sm text-gray-700 border rounded focus:outline-none focus:shadow-outline"
+                id="userName"
+                type="text"
+                placeholder="User Name"
+              />
             </div>
             <div className="mb-4">
               <label
                 className="block mb-1 text-sm font-bold text-gray-700 dark:text-white"
-                htmlFor="email"
+                htmlFor="password"
               >
-                Email
+                Password
               </label>
               <input
                 onChange={(e) => {
-                  setuserName(e.target.value);
+                  setPassword(e.target.value);
                 }}
-                className="w-full px-2 py-1 text-sm text-gray-700  border rounded focus:outline-none focus:shadow-outline"
-                id="email"
-                type="email"
-                placeholder="Email"
+                className="w-full px-2 py-1 text-sm text-gray-700 border rounded focus:outline-none focus:shadow-outline"
+                id="password"
+                type="password"
+                placeholder="******************"
               />
-            </div>
-            <div className="mb-4 md:flex md:justify-between">
-              <div className="md:w-1/2 md:mr-2">
-                <label
-                  className="block mb-1 text-sm font-bold text-gray-700 dark:text-white"
-                  htmlFor="password"
-                >
-                  Password
-                </label>
-                <input
-                  onChange={(e) => {
-                    setpassword(e.target.value);
-                  }}
-                  className="w-full px-2 py-1 text-sm text-gray-700 border rounded focus:outline-none focus:shadow-outline"
-                  id="password"
-                  type="password"
-                  placeholder="******************"
-                />
-              </div>
             </div>
             <div className="text-center mt-4">
               <button

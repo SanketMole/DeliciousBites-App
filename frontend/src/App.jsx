@@ -5,8 +5,9 @@ import { Body } from "./Pages/Body";
 import RestaurantPage from "./Pages/RestaurantPage";
 import More from "./Pages/More";
 import View from "./Pages/View";
-import Login from "./Pages/Login";
+import Signin from "./Pages/Signin";
 import HomePage from "./Pages/HomePage";
+import Login from "./Pages/Login";
 
 const App = () => {
   const [cart, setcart] = useState({});
@@ -29,10 +30,17 @@ const App = () => {
             path="/view"
             element={<View cart={cart} setcart={setcart} />}
           />
-          <Route path="/" element={<Login cart={cart} setcart={setcart} />} />
+          <Route
+            path="/register"
+            element={<Signin cart={cart} setcart={setcart} />}
+          />
           <Route
             path="/home"
             element={<HomePage cart={cart} setcart={setcart} />}
+          />
+          <Route
+            path="/login"
+            element={<Login cart={cart} setcart={setcart} />}
           />
         </Routes>
       </BrowserRouter>
