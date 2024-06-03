@@ -53,7 +53,7 @@ UserRouter.post("/signup", async (req, res) => {
     );
 
     res.json({
-      msg: UserSignup,
+      msg: "Successfully created ",
       token,
     });
   } catch (err) {

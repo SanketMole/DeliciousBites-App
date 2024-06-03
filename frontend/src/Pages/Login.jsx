@@ -17,6 +17,7 @@ const Login = () => {
     });
 
     console.log(response.data);
+    alert(response.data.msg);
   }
 
   return (
@@ -84,7 +85,7 @@ const Login = () => {
                 onChange={(e) => {
                   setuserName(e.target.value);
                 }}
-                className="w-full px-2 py-1 text-sm text-gray-700 dark:text-white border rounded focus:outline-none focus:shadow-outline"
+                className="w-full px-2 py-1 text-sm text-gray-700  border rounded focus:outline-none focus:shadow-outline"
                 id="email"
                 type="email"
                 placeholder="Email"
@@ -102,7 +103,7 @@ const Login = () => {
                   onChange={(e) => {
                     setpassword(e.target.value);
                   }}
-                  className="w-full px-2 py-1 text-sm text-gray-700 dark:text-white border rounded focus:outline-none focus:shadow-outline"
+                  className="w-full px-2 py-1 text-sm text-gray-700 border rounded focus:outline-none focus:shadow-outline"
                   id="password"
                   type="password"
                   placeholder="******************"
