@@ -98,7 +98,7 @@ UserRouter.post("/signin", async (req, res) => {
     });
   } else {
     res.json({
-      msg: "User Not Logged in",
+      msg: "User Not Lo in",
     });
   }
 });

@@ -1,11 +1,26 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleRegister = () => {
+  const handleRegister = async () => {
     // Add registration logic here
+    const response = await axios.post("http://localhost:3000/api/v1/signin", {
+      userName,
+      password,
+    });
+
+    localStorage.setItem("token", response.data.token);
+    const finaltoken = localStorage.getItem("token");
+    if (finaltoken === response.data.token) {
+      navigate("/body");
+    } else {
+      alert("wrong info");
+    }
   };
 
   return (
@@ -66,7 +81,7 @@ const Login = () => {
                 className="w-full px-3 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-900"
                 type="button"
               >
-                Register Account
+                Login
               </button>
             </div>
             <hr className="my-4 border-t" />
@@ -79,12 +94,12 @@ const Login = () => {
               </a>
             </div>
             <div className="text-center">
-              <a
+              <Link
+                to="/register"
                 className="inline-block text-sm text-blue-500 dark:text-blue-500"
-                href="./index.html"
               >
-                Already have an account? Login!
-              </a>
+                Don't have an Account? Register!
+              </Link>
             </div>
           </form>
         </div>

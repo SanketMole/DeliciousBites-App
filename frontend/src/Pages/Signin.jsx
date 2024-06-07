@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signin = () => {
+  const navigate = useNavigate();
   const [firstName, setfirstName] = useState("");
   const [lastName, setlastName] = useState("");
   const [userName, setuserName] = useState("");
@@ -16,8 +18,11 @@ const Signin = () => {
       userName,
     });
 
-    console.log(response.data);
+    console.log(response.data.token);
+    localStorage.setItem("token", response.data.token);
+
     alert(response.data.msg);
+    navigate("/login");
   }
 
   return (
@@ -129,12 +134,12 @@ const Signin = () => {
               </a>
             </div>
             <div className="text-center">
-              <a
+              <Link
+                to="/login"
                 className="inline-block text-sm text-blue-500 dark:text-blue-500"
-                href="./index.html"
               >
                 Already have an account? Login!
-              </a>
+              </Link>
             </div>
           </form>
         </div>
