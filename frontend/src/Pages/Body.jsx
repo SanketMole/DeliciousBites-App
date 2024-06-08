@@ -74,8 +74,12 @@ export const Body = ({ cart, setcart, userData }) => {
 
   return (
     <div className="bg-gray-100">
+      <img
+        className="my-28 w-full mx-3 h-[450px]"
+        src="https://img.freepik.com/free-photo/crop-plate-with-vegetable-salad_23-2147753679.jpg?size=626&ext=jpg&ga=GA1.1.1518270500.1717545600&semt=ais_user"
+      />
       <div className="flex justify-center ">
-        <div className="my-20 h-30 text-center">
+        <div className=" text-center">
           <div className="flex my-14 mx-4 px-2 h-16 sm:h-14 py-3 sm:ml-4 border-4 border-blue-900 overflow-hidden rounded-2xl font-[sans-serif]">
             <input
               type="search"

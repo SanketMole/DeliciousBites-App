@@ -60,7 +60,7 @@ export const Header = ({ cart, userData }) => {
               </div>
             )}
             <span className=" bg-purple-900 px-5  hidden items-center justify-center rounded-full text-white  py-2  text-3xl font-semibold shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-purple-800 sm:inline-flex">
-              {userData.firstName[0]} {/* Display user's first name */}
+              {userData.firstName} {/* Display user's first name */}
             </span>
           </div>
         </div>
