@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import car from "../assets/cart.png";
 import dman from "../assets/dman.avif";
 
-export const Header = ({ cart }) => {
+export const Header = ({ cart, userData }) => {
   const location = useLocation();
 
   const uniqueItemsInCart = Object.keys(cart).length;
@@ -48,11 +48,8 @@ export const Header = ({ cart }) => {
             </Link>
           </div>
           <div className="flex items-center justify-end gap-3">
-            <span className="hidden items-center justify-center rounded-xl bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-gray-50 sm:inline-flex">
-              Sign in
-            </span>
             <span className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500">
-              Login
+              Logout
             </span>
             {!isLoginPage && (
               <div className="flex items-center">
@@ -62,6 +59,9 @@ export const Header = ({ cart }) => {
                 <p className="ml-2 font-bold">{uniqueItemsInCart}</p>
               </div>
             )}
+            <span className=" bg-purple-900 px-5  hidden items-center justify-center rounded-full text-white  py-2  text-3xl font-semibold shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-purple-800 sm:inline-flex">
+              {userData.firstName[0]} {/* Display user's first name */}
+            </span>
           </div>
         </div>
       </div>

@@ -8,18 +8,39 @@ import View from "./Pages/View";
 import Signin from "./Pages/Signin";
 import HomePage from "./Pages/HomePage";
 import Login from "./Pages/Login";
+import axios from "axios";
 
 const App = () => {
   const [cart, setcart] = useState({});
+  const [userData, setUserData] = useState({});
+
+  useEffect(() => {
+    async function fetchUserInfo() {
+      try {
+        const resp = await axios.get("http://localhost:3000/api/v1/user-info", {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        });
+
+        setUserData(resp.data);
+        console.log(userData);
+      } catch (error) {
+        console.error("Error fetching user info:", error);
+      }
+    }
+
+    fetchUserInfo();
+  }, []);
 
   return (
     <div>
       <BrowserRouter>
-        <Header cart={cart} setcart={setcart} />
+        <Header cart={cart} setcart={setcart} userData={userData} />
         <Routes>
           <Route
             path="/body"
-            element={<Body cart={cart} setcart={setcart} />}
+            element={<Body cart={cart} setcart={setcart} userData={userData} />}
           />
           <Route path="/restaurantlist" element={<RestaurantPage />} />
           <Route

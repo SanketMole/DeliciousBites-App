@@ -68,6 +68,7 @@ const signinSchema = zod.object({
   userName: zod.string().email(),
   password: zod.string(),
 });
+
 UserRouter.post("/signin", async (req, res) => {
   const validation = signinSchema.safeParse(req.body);
 
@@ -80,26 +81,37 @@ UserRouter.post("/signin", async (req, res) => {
 
   const { userName, password } = req.body;
 
-  const user = await User.findOne({
-    userName,
-    password,
-  });
+  try {
+    const user = await User.findOne({
+      userName,
+      password,
+    });
 
-  if (user) {
-    const token = jwt.sign(
-      {
-        UserId: user._id,
-      },
-      JWT_SECRET
-    );
-    return res.json({
-      msg: "Here is your token",
-      token,
-    });
-  } else {
-    res.json({
-      msg: "User Not Lo in",
-    });
+    if (user) {
+      const token = jwt.sign(
+        {
+          UserId: user._id,
+        },
+        JWT_SECRET
+      );
+
+      // Extracting firstName and lastName from the user object
+      const { firstName, lastName } = user;
+
+      return res.json({
+        msg: "Here is your token",
+        token,
+        firstName,
+        lastName,
+      });
+    } else {
+      res.json({
+        msg: "User Not Logged in",
+      });
+    }
+  } catch (error) {
+    console.error("Error signing in:", error);
+    res.status(500).json({ msg: "Internal server error" });
   }
 });
 
@@ -125,6 +137,37 @@ UserRouter.put("/update", authMiddleware, async (req, res) => {
   res.json({
     message: "Updated successfully",
   });
+});
+
+UserRouter.get("/user-info", authMiddleware, async (req, res) => {
+  try {
+    // Extract the token from the request headers
+    const token = req.headers.authorization.split(" ")[1];
+    // Verify and decode the token to get the user ID
+    const decodedToken = jwt.verify(token, JWT_SECRET);
+    const userId = decodedToken.UserId;
+
+    // Retrieve the user details from the database
+    const user = await User.findById(userId, {
+      userName: 1,
+      firstName: 1,
+      lastName: 1,
+    });
+
+    if (!user) {
+      return res.status(404).json({ msg: "User not found" });
+    }
+
+    // Return the user info
+    res.json({
+      userName: user.userName,
+      firstName: user.firstName,
+      lastName: user.lastName,
+    });
+  } catch (error) {
+    console.error("Error fetching user info:", error);
+    res.status(500).json({ msg: "Internal server error" });
+  }
 });
 
 export default UserRouter;

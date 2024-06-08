@@ -6,8 +6,9 @@ import { useNavigate } from "react-router-dom";
 
 import SkeletonLoader from "../Components/SkeletonLoader";
 import HomePage from "./HomePage";
+import TopSearch from "../Components/TopSearch";
 
-export const Body = ({ cart, setcart }) => {
+export const Body = ({ cart, setcart, userData }) => {
   const [val, setVal] = useState("");
   const [filterFood, setfilterFood] = useState([]);
   const [topfood, settopfood] = useState([]);
@@ -69,15 +70,17 @@ export const Body = ({ cart, setcart }) => {
     navigate(`/restaurantlist`);
   }
 
+  console.log(userData);
+
   return (
     <div className="bg-gray-100">
       <div className="flex justify-center ">
-        <div className="my-20  h-30 text-center  ">
-          <div className="flex my-14 mx-4  px-2 h-16 sm:h-14  py-3   sm:ml-4 border-4 border-blue-900 overflow-hidden  rounded-2xl font-[sans-serif]">
+        <div className="my-20 h-30 text-center">
+          <div className="flex my-14 mx-4 px-2 h-16 sm:h-14 py-3 sm:ml-4 border-4 border-blue-900 overflow-hidden rounded-2xl font-[sans-serif]">
             <input
               type="search"
               placeholder="Search Something..."
-              className="w-full outline-none bg-transparent text-gray-600 text-sm   "
+              className="w-full outline-none bg-transparent text-gray-600 text-sm"
               onChange={(e) => {
                 setVal(e.target.value);
                 setloading(true);
@@ -93,12 +96,13 @@ export const Body = ({ cart, setcart }) => {
               <path d="m190.707 180.101-47.078-47.077c11.702-14.072 18.752-32.142 18.752-51.831C162.381 36.423 125.959 0 81.191 0 36.422 0 0 36.423 0 81.193c0 44.767 36.422 81.187 81.191 81.187 19.688 0 37.759-7.049 51.831-18.751l47.079 47.078a7.474 7.474 0 0 0 5.303 2.197 7.498 7.498 0 0 0 5.303-12.803zM15 81.193C15 44.694 44.693 15 81.191 15c36.497 0 66.189 29.694 66.189 66.193 0 36.496-29.692 66.187-66.189 66.187C44.693 147.38 15 117.689 15 81.193z" />
             </svg>
           </div>
+
           <button
             onClick={() => {
               setrate(!rate);
               setcheck(!check);
             }}
-            className="ml-4 sm:ml-6 "
+            className="ml-4 sm:ml-6"
           >
             <input
               onChange={() => {
@@ -110,10 +114,9 @@ export const Body = ({ cart, setcart }) => {
             />
             Top Rated Food
           </button>
-
           <select
             onChange={handleStar}
-            className="mx-10 border-2 border-black  rounded-md w-48  h-12 sm:h-8 md:h-8 "
+            className="mx-10 border-2 border-black rounded-md w-48 h-12 sm:h-8 md:h-8"
           >
             <option value="0">Select based on rating</option>
             <option value="4.8">Rating 4.8+</option>
@@ -121,9 +124,8 @@ export const Body = ({ cart, setcart }) => {
           </select>
         </div>
       </div>
-
-      <div className="flex flex-wrap gap-10 ">
-        {noResults && <div className=" text-red-500  ">No results found</div>}
+      <div className="flex flex-wrap gap-10">
+        {noResults && <div className="text-red-500">No results found</div>}
         {(loading
           ? Array.from({ length: star1.length || star2.length })
           : check
@@ -132,7 +134,7 @@ export const Body = ({ cart, setcart }) => {
         ).map((data, index) => (
           <div key={index}>
             {loading ? (
-              <div className="mx-6  ">
+              <div className="mx-6">
                 <SkeletonLoader />
               </div>
             ) : check ? (
@@ -162,6 +164,19 @@ export const Body = ({ cart, setcart }) => {
             )}
           </div>
         ))}
+      </div>
+      {/* Additional Unique Element */}
+      <div className="flex justify-center mt-10">
+        <div className="bg-blue-500 text-white p-4 rounded-md shadow-lg">
+          <h2 className="text-lg font-semibold mb-2">Trending Now</h2>
+          <p className="text-sm">
+            Discover the latest food trends and flavors that everyone is talking
+            about!
+          </p>
+          <button className="mt-4 px-4 py-2 bg-white text-blue-500 rounded-full border border-blue-500 hover:bg-blue-100 transition duration-300">
+            Explore Trends
+          </button>
+        </div>
       </div>
     </div>
   );
