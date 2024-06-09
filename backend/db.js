@@ -6,7 +6,10 @@ dotenv.config({ path: "../.env" });
 console.log(process.env.MONGO_URI);
 
 try {
-  mongoose.connect(process.env.MONGO_URI);
+  mongoose.connect(process.env.MONGO_URI, {
+    serverSelectionTimeoutMS: 30000, // Increase to 30 seconds
+    socketTimeoutMS: 60000,
+  });
 } catch (err) {
   console.log(err);
 }
