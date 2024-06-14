@@ -8,7 +8,6 @@ import SkeletonLoader from "../Components/SkeletonLoader";
 import HomePage from "./HomePage";
 import TopSearch from "../Components/TopSearch";
 import ExploreOptions from "../Components/ExploreOptions";
-import DepthFeature from "../Components/DepthFeature";
 
 export const Body = ({ cart, setcart, userData }) => {
   const [val, setVal] = useState("");
@@ -23,6 +22,9 @@ export const Body = ({ cart, setcart, userData }) => {
   const [loading, setloading] = useState(true);
 
   const [veg, setveg] = useState(false);
+  const [nonveg, setnonveg] = useState(false);
+
+  //...........................................
   useEffect(() => {
     const veggie = foodData.filter((data) => {
       return data.vegetarian;
@@ -30,6 +32,15 @@ export const Body = ({ cart, setcart, userData }) => {
     setStar1(veggie);
   }, [veg]);
   console.log(veg);
+
+  useEffect(() => {
+    const nonveggie = foodData.filter((data) => {
+      return !data.vegetarian;
+    });
+    setStar1(nonveggie);
+  }, [nonveg]);
+
+  //................................................
 
   const navigate = useNavigate();
 
@@ -203,7 +214,12 @@ export const Body = ({ cart, setcart, userData }) => {
                 >
                   Veg
                 </button>
-                <button className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300">
+                <button
+                  onClick={() => {
+                    setnonveg(!nonveg);
+                  }}
+                  className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300"
+                >
                   Non-Veg
                 </button>
               </div>
