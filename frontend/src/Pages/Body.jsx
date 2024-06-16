@@ -23,6 +23,7 @@ export const Body = ({ cart, setcart, userData }) => {
 
   const [veg, setveg] = useState(false);
   const [nonveg, setnonveg] = useState(false);
+  const [desert, setdessert] = useState(false);
 
   //...........................................
   useEffect(() => {
@@ -39,6 +40,15 @@ export const Body = ({ cart, setcart, userData }) => {
     });
     setStar1(nonveggie);
   }, [nonveg]);
+
+  //................................................
+
+  useEffect(() => {
+    const dese = foodData.filter((data) => {
+      return data.category == "Dessert";
+    });
+    setStar1(dese);
+  }, [desert]);
 
   //................................................
 
@@ -203,7 +213,12 @@ export const Body = ({ cart, setcart, userData }) => {
                 <button className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300">
                   Sushi
                 </button>
-                <button className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300">
+                <button
+                  onClick={() => {
+                    setdessert(!desert);
+                  }}
+                  className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300"
+                >
                   Desserts
                 </button>
                 <button
@@ -239,7 +254,7 @@ export const Body = ({ cart, setcart, userData }) => {
           ? star2
           : star1
         ).map((data, index) => (
-          <div key={index}>
+          <div key={index} loading="lazy">
             {loading ? (
               <div className="mx-6">
                 <SkeletonLoader />
@@ -275,18 +290,16 @@ export const Body = ({ cart, setcart, userData }) => {
 
       <ExploreOptions />
 
-      {/* User Testimonials */}
       <div className="bg-blue-50 mt-12 py-12">
-        <h2 className="text-2xl font-semibold text-center mb-6">
+        <h2 className="text-3xl font-semibold text-center mb-8 text-blue-900">
           What Our Users Say
         </h2>
-        <div className="flex flex-wrap justify-center space-x-0 sm:space-x-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-center">
           {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="bg-white p-6 rounded-lg shadow-md w-full sm:w-80 mb-4"
-            >
-              <p className="text-gray-700 mb-4">"{testimonial.comment}"</p>
+            <div key={index} className="bg-white p-6 rounded-lg shadow-md mb-4">
+              <p className="text-gray-800 text-lg mb-4">
+                "{testimonial.comment}"
+              </p>
               <p className="text-blue-600 font-semibold">{testimonial.name}</p>
             </div>
           ))}
@@ -295,14 +308,14 @@ export const Body = ({ cart, setcart, userData }) => {
 
       {/* Call-to-Action Banner */}
       <div className="bg-blue-500 text-white py-12 mt-12 text-center">
-        <h2 className="text-3xl font-semibold mb-4">
+        <h2 className="text-4xl font-semibold mb-4">
           Discover the Best Food Around You!
         </h2>
         <p className="text-lg mb-6">
           Join our community and enjoy the finest dishes.
         </p>
         <button
-          className="bg-white text-blue-500 rounded-md px-6 py-3 hover:bg-gray-200"
+          className="bg-white text-blue-500 rounded-md px-6 py-3 hover:bg-gray-200 shadow-lg"
           onClick={handlenavigate}
         >
           Explore Restaurants
@@ -311,3 +324,4 @@ export const Body = ({ cart, setcart, userData }) => {
     </div>
   );
 };
+7;

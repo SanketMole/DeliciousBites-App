@@ -7,7 +7,8 @@ export const foodData = [
       "Triangular pastry filled with spiced potatoes, peas, and sometimes meat, fried until golden brown and crispy.",
     rating: 4.6,
     vegetarian: true,
-    price: 150, // Price in rupees
+    price: 150,
+    category: "Appetizers", // Updated category to Appetizers
   },
   {
     id: 12,
@@ -18,6 +19,7 @@ export const foodData = [
     rating: 4.8,
     vegetarian: false,
     price: 200,
+    category: "Main Course", // This remains unchanged as per your request not to add more Main Course
   },
   {
     id: 13,
@@ -28,6 +30,7 @@ export const foodData = [
     rating: 4.7,
     vegetarian: true,
     price: 250,
+    category: "Main Course", // This remains unchanged as per your request not to add more Main Course
   },
   {
     id: 14,
@@ -38,6 +41,7 @@ export const foodData = [
     rating: 4.5,
     vegetarian: false,
     price: 300,
+    category: "Main Course", // This remains unchanged as per your request not to add more Main Course
   },
   {
     id: 15,
@@ -48,6 +52,7 @@ export const foodData = [
     rating: 4.9,
     vegetarian: true,
     price: 350,
+    category: "Appetizers", // Updated category to Appetizers
   },
   {
     id: 16,
@@ -57,7 +62,8 @@ export const foodData = [
       "Flavorful Kashmiri curry dish made with tender mutton cooked in a rich gravy flavored with traditional spices.",
     rating: 4.6,
     vegetarian: false,
-    price: 200, // Price in rupees
+    price: 200,
+    category: "Main Course", // This remains unchanged as per your request not to add more Main Course
   },
   {
     id: 17,
@@ -68,6 +74,7 @@ export const foodData = [
     rating: 4.8,
     vegetarian: true,
     price: 250,
+    category: "Breakfast", // Updated category to Breakfast
   },
   {
     id: 18,
@@ -78,6 +85,7 @@ export const foodData = [
     rating: 4.7,
     vegetarian: false,
     price: 300,
+    category: "Main Course", // This remains unchanged as per your request not to add more Main Course
   },
   {
     id: 19,
@@ -88,6 +96,7 @@ export const foodData = [
     rating: 4.6,
     vegetarian: true,
     price: 350,
+    category: "Main Course", // This remains unchanged as per your request not to add more Main Course
   },
   {
     id: 20,
@@ -98,6 +107,7 @@ export const foodData = [
     rating: 4.9,
     vegetarian: false,
     price: 200,
+    category: "Main Course", // This remains unchanged as per your request not to add more Main Course
   },
   {
     id: 21,
@@ -108,6 +118,41 @@ export const foodData = [
     rating: 4.5,
     vegetarian: true,
     price: 250,
+    category: "Main Course", // This remains unchanged as per your request not to add more Main Course
+  },
+
+  {
+    id: 22,
+    src: "https://www.yummytummyaarthi.com/wp-content/uploads/2014/12/1-14.jpg", // Replace with actual dessert image URL
+    title: "Gulab Jamun",
+    description:
+      "Gulab Jamun is a popular Indian dessert made of milk solids kneaded into a dough, deep-fried until golden brown, and soaked in sugar syrup.",
+    rating: 4.8,
+    vegetarian: true,
+    price: 180,
+    category: "Dessert",
+  },
+  {
+    id: 23,
+    src: "https://www.thespruceeats.com/thmb/LRHVkNnPFRGjN5LixQWD1C9Pnjw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/rasgulla-indian-dessert-1957839-hero-01-7c3528a2d34a4f1b9248c7483a73d0a6.jpg", // Replace with actual dessert image URL
+    title: "Rasgulla",
+    description:
+      "Rasgulla is a traditional Bengali dessert made from fresh paneer (Indian cottage cheese) balls cooked in sugar syrup until soft and spongy.",
+    rating: 4.7,
+    vegetarian: true,
+    price: 160,
+    category: "Dessert",
+  },
+  {
+    id: 24,
+    src: "https://www.example.com/dessert3.jpg", // Replace with actual dessert image URL
+    title: "Kulfi",
+    description:
+      "Kulfi is a creamy and dense Indian ice cream made from milk, sugar, and various flavors like cardamom, pistachio, or saffron.",
+    rating: 4.9,
+    vegetarian: true,
+    price: 200,
+    category: "Dessert",
   },
 ];
 
