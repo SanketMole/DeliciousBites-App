@@ -24,12 +24,15 @@ export const Body = ({ cart, setcart, userData }) => {
   const [veg, setveg] = useState(false);
   const [nonveg, setnonveg] = useState(false);
   const [desert, setdessert] = useState(false);
+  const [main, setmain] = useState(false);
+  const [breake, setbreake] = useState(false);
 
   //...........................................
   useEffect(() => {
     const veggie = foodData.filter((data) => {
       return data.vegetarian;
     });
+
     setStar1(veggie);
   }, [veg]);
   console.log(veg);
@@ -51,6 +54,26 @@ export const Body = ({ cart, setcart, userData }) => {
   }, [desert]);
 
   //................................................
+
+  useEffect(() => {
+    const maine = foodData.filter((data) => {
+      return data.category == "Main Course";
+    });
+
+    setStar1(maine);
+  }, [main]);
+
+  //..................................................
+
+  useEffect(() => {
+    const bre = foodData.filter((data) => {
+      return data.category == "Breakfast";
+    });
+
+    setStar1(bre);
+  }, [breake]);
+
+  //.................................................
 
   const navigate = useNavigate();
 
@@ -201,17 +224,30 @@ export const Body = ({ cart, setcart, userData }) => {
           <div className="">
             <div>
               <div className="mt-4 flex flex-wrap justify-center space-x-2 sm:space-x-4">
-                <button className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300">
+                <button
+                  onClick={() => {
+                    setStar1(foodData);
+                  }}
+                  className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300"
+                >
                   All
                 </button>
-                <button className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300">
-                  Pizza
+
+                <button
+                  onClick={() => {
+                    setbreake(!breake);
+                  }}
+                  className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300"
+                >
+                  BreakFast
                 </button>
-                <button className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300">
-                  Burgers
-                </button>
-                <button className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300">
-                  Sushi
+                <button
+                  onClick={() => {
+                    setmain(!main);
+                  }}
+                  className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300"
+                >
+                  Main course
                 </button>
                 <button
                   onClick={() => {
@@ -243,7 +279,7 @@ export const Body = ({ cart, setcart, userData }) => {
         </div>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-5 mt-12">
+      <div className="flex flex-wrap  gap-5 mt-12">
         {noResults && (
           <div className="text-red-500 justify-center">No results found</div>
         )}

@@ -145,7 +145,7 @@ export const foodData = [
   },
   {
     id: 24,
-    src: "https://www.example.com/dessert3.jpg", // Replace with actual dessert image URL
+    src: "https://static.toiimg.com/thumb/84786580.cms?width=1200&height=900", // Replace with actual dessert image URL
     title: "Kulfi",
     description:
       "Kulfi is a creamy and dense Indian ice cream made from milk, sugar, and various flavors like cardamom, pistachio, or saffron.",
