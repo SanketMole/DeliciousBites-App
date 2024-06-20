@@ -279,7 +279,7 @@ export const Body = ({ cart, setcart, userData }) => {
         </div>
       </div>
 
-      <div className="flex flex-wrap  gap-5 mt-12">
+      <div className="flex flex-wrap  gap-5 mt-12 ">
         {noResults && (
           <div className="text-red-500 justify-center">No results found</div>
         )}
@@ -326,14 +326,17 @@ export const Body = ({ cart, setcart, userData }) => {
 
       <ExploreOptions />
 
-      <div className="bg-blue-50 mt-12 py-12">
-        <h2 className="text-3xl font-semibold text-center mb-8 text-blue-900">
+      <div className="bg-gradient-to-r from-blue-50 to-blue-100 py-16">
+        <h2 className="text-4xl font-bold text-center mb-10 text-blue-900">
           What Our Users Say
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-center px-4">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-md mb-4">
-              <p className="text-gray-800 text-lg mb-4">
+            <div
+              key={index}
+              className="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300"
+            >
+              <p className="text-gray-700 text-lg mb-6 italic">
                 "{testimonial.comment}"
               </p>
               <p className="text-blue-600 font-semibold">{testimonial.name}</p>
@@ -343,19 +346,22 @@ export const Body = ({ cart, setcart, userData }) => {
       </div>
 
       {/* Call-to-Action Banner */}
-      <div className="bg-blue-500 text-white py-12 mt-12 text-center">
-        <h2 className="text-4xl font-semibold mb-4">
-          Discover the Best Food Around You!
-        </h2>
-        <p className="text-lg mb-6">
-          Join our community and enjoy the finest dishes.
-        </p>
-        <button
-          className="bg-white text-blue-500 rounded-md px-6 py-3 hover:bg-gray-200 shadow-lg"
-          onClick={handlenavigate}
-        >
-          Explore Restaurants
-        </button>
+      <div className="relative bg-blue-600 text-white py-16 mt-16 text-center">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-700 opacity-75"></div>
+        <div className="relative z-10">
+          <h2 className="text-5xl font-extrabold mb-6">
+            Discover the Best Food Around You!
+          </h2>
+          <p className="text-xl mb-8">
+            Join our community and enjoy the finest dishes.
+          </p>
+          <button
+            className="bg-white text-blue-600 rounded-full px-8 py-4 text-lg hover:bg-gray-100 shadow-2xl transition-all duration-300"
+            onClick={handlenavigate}
+          >
+            Explore Restaurants
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import car from "../assets/cart.png";
 import dman from "../assets/dman.avif";
 
@@ -6,6 +6,7 @@ export const Header = ({ cart, userData }) => {
   const location = useLocation();
 
   const uniqueItemsInCart = Object.keys(cart).length;
+  const navigate = useNavigate();
 
   const isLoginPage = location.pathname === "/";
 
@@ -48,9 +49,16 @@ export const Header = ({ cart, userData }) => {
             </Link>
           </div>
           <div className="flex items-center justify-end gap-3">
-            <span className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500">
+            <span
+              onClick={() => {
+                localStorage.removeItem("token");
+                navigate("/login");
+              }}
+              className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500"
+            >
               Logout
             </span>
+
             {!isLoginPage && (
               <div className="flex items-center">
                 <Link to="/view">
