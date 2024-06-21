@@ -1,11 +1,12 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import car from "../assets/cart.png";
 import dman from "../assets/dman.avif";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const Header = ({ cart, userData }) => {
   const location = useLocation();
   const [log, setlog] = useState(true);
+  const [userLocation, setUserLocation] = useState(null);
 
   let totalQuantity = 0;
   for (const itemId in cart) {
@@ -17,7 +18,35 @@ export const Header = ({ cart, userData }) => {
 
   const isLoginPage = location.pathname === "/";
 
-  console.log(cart);
+  useEffect(() => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          fetch(
+            `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              setUserLocation(
+                data.city || `${latitude.toFixed(2)}, ${longitude.toFixed(2)}`
+              );
+            })
+            .catch((error) => {
+              console.error("Error fetching location data:", error);
+              setUserLocation(
+                `${latitude.toFixed(2)}, ${longitude.toFixed(2)}`
+              );
+            });
+        },
+        (error) => {
+          console.error("Error getting location:", error);
+        }
+      );
+    } else {
+      console.log("Geolocation is not available");
+    }
+  }, []);
 
   return (
     <header className="fixed inset-x-0 top-0 z-30 mx-auto w-full h-18 max-w-screen-md border border-gray-100 bg-white/80 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg">
@@ -30,6 +59,11 @@ export const Header = ({ cart, userData }) => {
                 alt="Boy riding a bike"
                 className="h-16 w-22 mix-blend-multiply mr-3 -mx-2 sm:rounded-l-3xl"
               />
+              {userLocation && (
+                <span className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-white bg-gray-900 transition-all duration-200">
+                  {userLocation}
+                </span>
+              )}
             </a>
           </div>
           <div className="hidden md:flex md:items-center md:justify-center md:gap-5">
@@ -89,7 +123,7 @@ export const Header = ({ cart, userData }) => {
               </div>
             )}
             <span className=" bg-purple-900 px-5  hidden items-center justify-center rounded-full text-white  py-2  text-3xl font-semibold shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-purple-800 sm:inline-flex">
-              {userData.firstName[0]} {/* Display user's first name */}
+              {userData.firstName[0]}
             </span>
           </div>
         </div>
