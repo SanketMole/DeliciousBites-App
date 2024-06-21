@@ -24,6 +24,7 @@ const App = () => {
         });
 
         setUserData(resp.data);
+
         console.log(userData);
       } catch (error) {
         console.error("Error fetching user info:", error);
@@ -31,12 +32,11 @@ const App = () => {
     }
 
     fetchUserInfo();
-  }, []);
+  }, [userData]);
 
   return (
     <div>
       <BrowserRouter>
-        <Header cart={cart} setcart={setcart} userData={userData} />
         <Routes>
           <Route
             path="/body"
@@ -49,7 +49,7 @@ const App = () => {
           />
           <Route
             path="/view"
-            element={<View cart={cart} setcart={setcart} />}
+            element={<View cart={cart} setcart={setcart} userData={userData} />}
           />
           <Route
             path="/register"

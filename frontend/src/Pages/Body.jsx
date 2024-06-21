@@ -8,6 +8,7 @@ import SkeletonLoader from "../Components/SkeletonLoader";
 import HomePage from "./HomePage";
 import TopSearch from "../Components/TopSearch";
 import ExploreOptions from "../Components/ExploreOptions";
+import { Header } from "../Components/Header";
 
 export const Body = ({ cart, setcart, userData }) => {
   const [val, setVal] = useState("");
@@ -158,6 +159,7 @@ export const Body = ({ cart, setcart, userData }) => {
 
   return (
     <div className="bg-gray-100">
+      <Header cart={cart} setcart={setcart} userData={userData} />
       <div
         className="my-28 w-full h-[300px] sm:h-[550px] bg-cover bg-center"
         style={{

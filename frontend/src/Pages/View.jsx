@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import del from "../assets/del.png";
+import { Header } from "../Components/Header";
 
-const View = ({ cart, setcart }) => {
+const View = ({ cart, setcart, userData }) => {
   const [cartItemsArray, setcartItemsArray] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
@@ -51,6 +52,7 @@ const View = ({ cart, setcart }) => {
 
   return (
     <div className="min-h-screen   bg-gray-100 pt-20 ">
+      <Header cart={cart} setcart={setcart} userData={userData} />
       <h1 className="mb-10 text-center text-2xl font-bold">Cart Items</h1>
       <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0 ">
         <div className="md:w-2/3 ">

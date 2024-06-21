@@ -1,9 +1,11 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import car from "../assets/cart.png";
 import dman from "../assets/dman.avif";
+import { useState } from "react";
 
 export const Header = ({ cart, userData }) => {
   const location = useLocation();
+  const [log, setlog] = useState(true);
 
   let totalQuantity = 0;
   for (const itemId in cart) {
@@ -14,6 +16,7 @@ export const Header = ({ cart, userData }) => {
   const navigate = useNavigate();
 
   const isLoginPage = location.pathname === "/";
+
   console.log(cart);
 
   return (
@@ -55,15 +58,27 @@ export const Header = ({ cart, userData }) => {
             </Link>
           </div>
           <div className="flex items-center justify-end gap-3">
-            <span
-              onClick={() => {
-                localStorage.removeItem("token");
-                navigate("/login");
-              }}
-              className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500"
-            >
-              Logout
-            </span>
+            {log ? (
+              <button
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  navigate("/login");
+                  setlog(false);
+                }}
+                className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500"
+              >
+                Logout
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  navigate("/login");
+                }}
+                className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500"
+              >
+                Login
+              </button>
+            )}
 
             {!isLoginPage && (
               <div className="flex items-center">
@@ -74,7 +89,7 @@ export const Header = ({ cart, userData }) => {
               </div>
             )}
             <span className=" bg-purple-900 px-5  hidden items-center justify-center rounded-full text-white  py-2  text-3xl font-semibold shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-purple-800 sm:inline-flex">
-              {userData.firstName} {/* Display user's first name */}
+              {userData.firstName[0]} {/* Display user's first name */}
             </span>
           </div>
         </div>
