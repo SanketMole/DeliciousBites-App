@@ -9,6 +9,7 @@ import HomePage from "./HomePage";
 import TopSearch from "../Components/TopSearch";
 import ExploreOptions from "../Components/ExploreOptions";
 import { Header } from "../Components/Header";
+import ImageFood from "../Components/ImageFood";
 
 export const Body = ({ cart, setcart, userData }) => {
   const [val, setVal] = useState("");
@@ -160,14 +161,16 @@ export const Body = ({ cart, setcart, userData }) => {
   return (
     <div className="bg-gray-100">
       <Header cart={cart} setcart={setcart} userData={userData} />
+
       <div
         className="my-28 w-full h-[300px] sm:h-[550px] bg-cover bg-center"
         style={{
           backgroundImage: `url('https://img.freepik.com/premium-photo/top-view-scene-thanksgiving-celebration-traditional-dinner-setting-food-conceptthanksgiving-dinner_217051-5021.jpg?w=1380')`,
         }}
       ></div>
-      <div className="flex justify-center">
-        <div className="text-center -mt-28 w-full max-w-3xl">
+      <ImageFood />
+      <div className="flex justify-center ">
+        <div className="text-center my-8 w-full max-w-3xl">
           <div className="flex my-14 mx-4 px-2 h-16 py-3 border-4 border-blue-900 rounded-2xl font-sans bg-white shadow-lg">
             <input
               type="search"

@@ -32,7 +32,7 @@ const App = () => {
     }
 
     fetchUserInfo();
-  }, [userData]);
+  }, []);
 
   return (
     <div>

@@ -3,7 +3,7 @@ import car from "../assets/cart.png";
 import dman from "../assets/dman.avif";
 import { useState, useEffect } from "react";
 
-export const Header = ({ cart, userData }) => {
+export const Header = ({ cart, userData, setcart }) => {
   const location = useLocation();
   const [log, setlog] = useState(true);
   const [userLocation, setUserLocation] = useState(null);
@@ -123,7 +123,7 @@ export const Header = ({ cart, userData }) => {
               </div>
             )}
             <span className=" bg-purple-900 px-5  hidden items-center justify-center rounded-full text-white  py-2  text-3xl font-semibold shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-purple-800 sm:inline-flex">
-              {userData.firstName[0]}
+              {userData.firstName}
             </span>
           </div>
         </div>
