@@ -7,7 +7,7 @@ console.log(process.env.MONGO_URI);
 
 try {
   mongoose.connect(process.env.MONGO_URI, {
-    serverSelectionTimeoutMS: 30000, // Increase to 30 seconds
+    serverSelectionTimeoutMS: 30000,
     socketTimeoutMS: 60000,
   });
 } catch (err) {

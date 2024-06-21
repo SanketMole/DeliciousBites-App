@@ -5,10 +5,16 @@ import dman from "../assets/dman.avif";
 export const Header = ({ cart, userData }) => {
   const location = useLocation();
 
-  const uniqueItemsInCart = Object.keys(cart).length;
+  let totalQuantity = 0;
+  for (const itemId in cart) {
+    if (cart.hasOwnProperty(itemId)) {
+      totalQuantity += cart[itemId].quantity;
+    }
+  }
   const navigate = useNavigate();
 
   const isLoginPage = location.pathname === "/";
+  console.log(cart);
 
   return (
     <header className="fixed inset-x-0 top-0 z-30 mx-auto w-full h-18 max-w-screen-md border border-gray-100 bg-white/80 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg">
@@ -64,7 +70,7 @@ export const Header = ({ cart, userData }) => {
                 <Link to="/view">
                   <img className="h-10" src={car} alt="Cart icon" />
                 </Link>
-                <p className="ml-2 font-bold">{uniqueItemsInCart}</p>
+                <p className="ml-2 font-bold">{totalQuantity}</p>
               </div>
             )}
             <span className=" bg-purple-900 px-5  hidden items-center justify-center rounded-full text-white  py-2  text-3xl font-semibold shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-purple-800 sm:inline-flex">
