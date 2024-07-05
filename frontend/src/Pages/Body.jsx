@@ -10,6 +10,7 @@ import TopSearch from "../Components/TopSearch";
 import ExploreOptions from "../Components/ExploreOptions";
 import { Header } from "../Components/Header";
 import ImageFood from "../Components/ImageFood";
+import Footer from "../Components/Footer";
 
 export const Body = ({ cart, setcart, userData }) => {
   const [val, setVal] = useState("");
@@ -368,6 +369,8 @@ export const Body = ({ cart, setcart, userData }) => {
           </button>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 };

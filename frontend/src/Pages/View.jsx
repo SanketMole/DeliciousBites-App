@@ -148,8 +148,7 @@ const View = ({ cart, setcart, userData }) => {
             <p className="text-xl font-bold">Total</p>
             <div>
               <p className="text-xl font-bold">
-                {(totalPrice - totalPrice * 0.1 + totalPrice * 0.18).toFixed(2)}{" "}
-                ₹
+                {totalPrice.toFixed(2) * 0.18 + totalPrice}.00s ₹
               </p>
               <p className="text-sm text-gray-600">Including GST & Discounts</p>
             </div>
