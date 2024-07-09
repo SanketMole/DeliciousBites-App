@@ -5,6 +5,8 @@ import { Header } from "../Components/Header";
 const View = ({ cart, setcart, userData }) => {
   const [cartItemsArray, setcartItemsArray] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [discount, setDiscount] = useState("");
+  const [finalPrice, setFinalPrice] = useState(0);
 
   useEffect(() => {
     // Convert cart object to array and calculate the total price
@@ -16,6 +18,7 @@ const View = ({ cart, setcart, userData }) => {
     }, 0);
 
     setTotalPrice(total);
+    setFinalPrice(total); // Initialize finalPrice with total price
   }, [cart]);
 
   const incrementQuantity = (itemId) => {
@@ -41,21 +44,31 @@ const View = ({ cart, setcart, userData }) => {
   };
 
   const removeItem = (itemId) => {
-    const del = confirm("Are u Sure ,You Want to Remove from Cart ");
+    const del = confirm(
+      "Are you sure you want to remove this item from the cart?"
+    );
     if (del) {
       const newCart = { ...cart };
       delete newCart[itemId]; // Delete item
       setcart(newCart);
+    }
+  };
+
+  const checkDiscount = () => {
+    if (discount === "SNAPDEAL") {
+      const discountedPrice = (totalPrice * 0.4).toFixed(2); // Apply 60% discount
+      setFinalPrice(parseFloat(discountedPrice));
     } else {
+      setFinalPrice(totalPrice); // No discount applied
     }
   };
 
   return (
-    <div className="min-h-screen   bg-gray-100 pt-20 ">
+    <div className="min-h-screen bg-gray-100 pt-20">
       <Header cart={cart} setcart={setcart} userData={userData} />
       <h1 className="mb-10 text-center text-2xl font-bold">Cart Items</h1>
-      <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0 ">
-        <div className="md:w-2/3 ">
+      <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
+        <div className="md:w-2/3">
           {cartItemsArray.length === 0 ? (
             <div className="text-center">No items in the cart</div>
           ) : (
@@ -65,14 +78,14 @@ const View = ({ cart, setcart, userData }) => {
               return (
                 <div
                   key={itemId}
-                  className="justify-between my-4 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start transition-transform transform  hover:shadow-xl"
+                  className="justify-between my-4 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start transition-transform transform hover:shadow-xl"
                 >
                   <img
                     src={item.image}
                     alt={`product-image`}
-                    className=" rounded-lg sm:w-44 h-32  "
+                    className="rounded-lg sm:w-44 h-32"
                   />
-                  <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between ">
+                  <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                     <div>
                       <h2 className="text-lg font-bold text-gray-900">
                         {item.title}
@@ -82,7 +95,7 @@ const View = ({ cart, setcart, userData }) => {
                       </p>
                     </div>
                     <div className="flex justify-between sm:mt-0 sm:block sm:space-x-6">
-                      <div className="flex items-center border-gray-100 ">
+                      <div className="flex items-center border-gray-100">
                         <button
                           className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-white"
                           onClick={() => decrementQuantity(itemId)}
@@ -90,20 +103,22 @@ const View = ({ cart, setcart, userData }) => {
                           -
                         </button>
                         <input
-                          className="h-8 w-8 border   bg-white text-center text-xs outline-none"
+                          className="h-8 w-8 border bg-white text-center text-xs outline-none"
                           type="number"
                           value={item.quantity}
                           readOnly
                         />
                         <button
-                          className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-white "
+                          className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-white"
                           onClick={() => incrementQuantity(itemId)}
                         >
                           +
                         </button>
                       </div>
                       <div className="flex items-center space-x-4">
-                        <p className="text-sm">{item.price * item.quantity}</p>
+                        <p className="text-sm">
+                          {item.price * item.quantity} ₹
+                        </p>
                       </div>
                     </div>
                     <button
@@ -111,7 +126,7 @@ const View = ({ cart, setcart, userData }) => {
                       onClick={() => removeItem(itemId)}
                     >
                       <img
-                        className="w-20 -my-8 ml-4 "
+                        className="w-20 -my-8 ml-4"
                         src={del}
                         alt="Delete item"
                       />
@@ -141,6 +156,21 @@ const View = ({ cart, setcart, userData }) => {
             <p className="text-lg font-semibold text-gray-700">Shipping</p>
             <p className="text-lg font-semibold text-gray-700">Free</p>
           </div>
+          <input
+            onChange={(e) => {
+              setDiscount(e.target.value);
+            }}
+            type="text"
+            placeholder="Discount"
+            className="font-semibold mb-4 p-2 border rounded"
+            value={discount}
+          />
+          <button
+            onClick={checkDiscount}
+            className="bg-green-500 rounded-full px-4 py-2"
+          >
+            Apply Discount
+          </button>
 
           <hr className="my-6 border-gray-300" />
 
@@ -148,7 +178,7 @@ const View = ({ cart, setcart, userData }) => {
             <p className="text-xl font-bold">Total</p>
             <div>
               <p className="text-xl font-bold">
-                {totalPrice.toFixed(2) * 0.18 + totalPrice}.00s ₹
+                {(finalPrice * 1.18).toFixed(2)} ₹
               </p>
               <p className="text-sm text-gray-600">Including GST & Discounts</p>
             </div>

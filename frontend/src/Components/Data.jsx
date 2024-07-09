@@ -285,15 +285,18 @@ export const RestaurantList = [
       {
         id: 1,
         name: "Butter Chicken",
+        vegetarian: false,
         price: 250,
         description:
           "Delicious chicken cooked in a creamy, buttery chicken enjoy your meal at very best with this dish. Order Now",
         image_url:
           "https://img.freepik.com/premium-photo/savor-delight-exquisite-lamb-beef-curry-rendang-ready-be-relished-eid-aladha_240109-1865.jpg?w=996",
       },
+
       {
         id: 2,
         name: "Manchurian",
+        vegetarian: true,
         price: 200,
         description:
           "Crispy vegetable Manchurian balls tossed in a tangy sauce . Order Now in our Restaurant and enjoy your meal",
@@ -303,6 +306,7 @@ export const RestaurantList = [
       {
         id: 3,
         name: "Pasta Alfredo",
+        vegetarian: true,
         price: 300,
         description:
           "Creamy pasta cooked with Alfredo sauce and topped with Parmesan cheese. Order Now in our Restaurant and enjoy your meal",
@@ -326,26 +330,32 @@ export const RestaurantList = [
       {
         id: 7,
         name: "Masala Dosa",
+        vegetarian: true,
         price: 120,
         description:
           "Crispy rice crepe filled with a spicy potato filling. Order Now in our Restaurant and enjoy your meal",
-        image_url: "https://example.com/masala-dosa.jpg",
+        image_url:
+          "https://img.freepik.com/free-photo/delicious-indian-dosa-composition_23-2149086051.jpg?ga=GA1.1.2079683489.1686238359&semt=ais_user",
       },
       {
         id: 8,
         name: "Bisi Bele Bath",
+        vegetarian: true,
         price: 150,
         description:
           "A traditional Karnataka dish made with rice, lentils, vegetables, and spices. Order Now in our Restaurant and enjoy your meal",
-        image_url: "https://example.com/bisi-bele-bath.jpg",
+        image_url:
+          "https://c.ndtvimg.com/2020-05/tdv57slg_bisi-bele-bath_625x300_08_May_20.jpg",
       },
       {
         id: 9,
         name: "Gobi Manchurian",
+        vegetarian: true,
         price: 180,
         description:
           "Crispy cauliflower florets tossed in a spicy and tangy sauce. Order Now in our Restaurant and enjoy your meal",
-        image_url: "https://example.com/gobi-manchurian.jpg",
+        image_url:
+          "https://img.freepik.com/free-photo/view-ready-eat-delicious-meal-go_23-2151431914.jpg?t=st=1720543342~exp=1720546942~hmac=abc865d3fb6bdb81c03e135146344f68235ee891dc4f7aede4103f3851c222a4&w=996",
       },
     ],
   },

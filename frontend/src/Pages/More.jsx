@@ -104,6 +104,7 @@ const More = ({ cart, setcart }) => {
         <h2 className="text-lg font-semibold mb-4">
           Recommended ({restaurant.menu.length})
         </h2>
+
         <div className="space-y-4">
           {restaurant.menu.map((item) => (
             <div key={item.id} className="flex items-center border p-4 rounded">
