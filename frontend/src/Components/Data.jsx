@@ -377,7 +377,8 @@ export const RestaurantList = [
         price: 300,
         description:
           "Fragrant basmati rice cooked with succulent chicken pieces and aromatic spices. Order Now in our Restaurant and enjoy your meal",
-        image_url: "https://example.com/chicken-biryani.jpg",
+        image_url:
+          "https://img.freepik.com/premium-photo/plate-chicken-biryani-top-view-with-yellow-background_1161819-13887.jpg?ga=GA1.1.271559470.1706765089&semt=ais_user",
       },
       {
         id: 11,
@@ -385,7 +386,8 @@ export const RestaurantList = [
         price: 350,
         description:
           "Tender mutton pieces marinated in spices, layered with rice, and slow-cooked to perfection. Order Now in our Restaurant and enjoy your meal",
-        image_url: "https://example.com/mutton-biryani.jpg",
+        image_url:
+          "https://img.freepik.com/free-photo/side-close-up-view-pilaf-appetizing-pilaf-with-rice-meat-dried-fruits_140725-74038.jpg?ga=GA1.1.271559470.1706765089&semt=ais_user",
       },
       {
         id: 12,
@@ -393,7 +395,8 @@ export const RestaurantList = [
         price: 250,
         description:
           "A flavorful rice dish cooked with assorted vegetables and aromatic spices.",
-        image_url: "https://example.com/veg-biryani.jpg",
+        image_url:
+          "https://img.freepik.com/free-photo/side-view-rice-garnish-with-fried-onion-carrot-greens-chili-pepper-table_141793-5069.jpg?ga=GA1.1.271559470.1706765089&semt=ais_user",
       },
     ],
   },
