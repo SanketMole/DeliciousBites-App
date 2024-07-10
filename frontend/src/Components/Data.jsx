@@ -418,7 +418,8 @@ export const RestaurantList = [
         price: 280,
         description:
           "A spicy and tangy curry made with fresh fish and traditional South Indian spices.",
-        image_url: "https://example.com/fish-curry.jpg",
+        image_url:
+          "https://img.freepik.com/free-photo/top-view-delicious-fish-meal-tray_23-2148734692.jpg?ga=GA1.1.271559470.1706765089&semt=ais_user",
       },
       {
         id: 14,
@@ -426,7 +427,8 @@ export const RestaurantList = [
         price: 320,
         description:
           "Crispy fried prawns marinated with spices and herbs, perfect as an appetizer or side dish.",
-        image_url: "https://example.com/prawn-fry.jpg",
+        image_url:
+          "https://img.freepik.com/free-photo/close-up-tasty-mussels-serving_23-2148393747.jpg?ga=GA1.1.271559470.1706765089&semt=ais_user",
       },
       {
         id: 15,
@@ -434,7 +436,8 @@ export const RestaurantList = [
         price: 250,
         description:
           "A popular spicy and flavorful chicken appetizer, perfect for spice lovers.",
-        image_url: "https://example.com/chicken-65.jpg",
+        image_url:
+          "https://img.freepik.com/free-photo/side-view-baked-chicken-with-cucumber-lemon-seasoning-bread-table_141793-4757.jpg?ga=GA1.1.271559470.1706765089&semt=ais_user",
       },
     ],
   },

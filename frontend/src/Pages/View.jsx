@@ -59,10 +59,12 @@ const View = ({ cart, setcart, userData }) => {
       const discountedPrice = (totalPrice * 0.4).toFixed(2); // Apply 60% discount
       setFinalPrice(parseFloat(discountedPrice));
     } else {
+      alert("Incorrect Coupon");
       setFinalPrice(totalPrice); // No discount applied
     }
   };
 
+  console.log(finalPrice);
   return (
     <div className="min-h-screen bg-gray-100 pt-20">
       <Header cart={cart} setcart={setcart} userData={userData} />
