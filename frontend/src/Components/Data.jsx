@@ -271,7 +271,7 @@ export const RatedFood = [
 
 export const RestaurantList = [
   {
-    id: 1,
+    id: 2,
     city: "Mumbai",
     restaurant_name: "Spice Lounge",
     delivery_time: "30 minutes",
@@ -459,7 +459,8 @@ export const RestaurantList = [
         price: 320,
         description:
           "Aromatic basmati rice cooked with succulent chicken pieces, saffron, and spices.",
-        image_url: "https://example.com/hyderabadi-chicken-biryani.jpg",
+        image_url:
+          "https://img.freepik.com/premium-photo/taste-magic-delicious-food-experiences-ai-generated-best-food-photo_1070043-82794.jpg?ga=GA1.1.271559470.1706765089&semt=ais_user",
       },
       {
         id: 17,
@@ -497,7 +498,8 @@ export const RestaurantList = [
         price: 200,
         description:
           "A traditional Rajasthani dish consisting of lentils, baked wheat rolls (baati), and a sweet dessert made from wheat flour (churma).",
-        image_url: "https://example.com/dal-baati-churma.jpg",
+        image_url:
+          "https://img.freepik.com/free-photo/intresting-indian-food-dish-with-pita_23-2148294984.jpg?ga=GA1.1.271559470.1706765089&semt=ais_user",
       },
       {
         id: 20,
@@ -535,7 +537,8 @@ export const RestaurantList = [
         price: 150,
         description:
           "A popular Mumbai street food dish consisting of mashed mixed vegetables cooked with spices and served with buttered bread rolls (pav).",
-        image_url: "https://example.com/pav-bhaji.jpg",
+        image_url:
+          "https://img.freepik.com/premium-photo/mumbai-style-pav-bhaji-is-fast-food-dish-from-india-consists-thick-vegetable-curry-served-with-soft-bread-roll-served-plate_466689-2233.jpg?ga=GA1.1.271559470.1706765089&semt=sph",
       },
       {
         id: 23,
@@ -573,7 +576,8 @@ export const RestaurantList = [
         price: 100,
         description:
           "A steamed savory cake made from fermented rice and chickpea flour, typically served with chutney.",
-        image_url: "https://example.com/dhokla.jpg",
+        image_url:
+          "https://img.freepik.com/premium-photo/gujarati-khaman-dhokla-made-using-chana-dal-served-with-green-chutney-selective-focus_466689-71723.jpg?ga=GA1.1.271559470.1706765089&semt=sph",
       },
       {
         id: 26,
@@ -610,7 +614,8 @@ export const RestaurantList = [
         price: 350,
         description:
           "A flavorful and tangy coconut-based curry made with fresh fish and traditional Goan spices.",
-        image_url: "https://example.com/goan-fish-curry.jpg",
+        image_url:
+          "https://img.freepik.com/free-photo/massaman-curry-frying-pan-with-spices-cement-floor_1150-20777.jpg?ga=GA1.1.271559470.1706765089&semt=ais_userg",
       },
       {
         id: 29,
@@ -647,7 +652,8 @@ export const RestaurantList = [
         price: 300,
         description:
           "A melt-in-your-mouth kebab made from finely ground minced meat (usually lamb or beef) marinated with papaya and a blend of spices, then shallow fried.",
-        image_url: "https://example.com/galouti-kebab.jpg",
+        image_url:
+          "https://img.freepik.com/free-photo/lamb-kebab-skewers-garnished-with-pomegranate-herbs_140725-1977.jpg?ga=GA1.1.271559470.1706765089&semt=ais_user",
       },
       {
         id: 32,
@@ -685,7 +691,8 @@ export const RestaurantList = [
         price: 120,
         description:
           "A crispy, golden-brown crepe made from fermented rice and lentil batter, filled with a spicy potato filling and served with chutney and sambar.",
-        image_url: "https://example.com/masala-dosa.jpg",
+        image_url:
+          "https://img.freepik.com/premium-photo/savoring-masala-dosa-white-plate_875825-161120.jpg?ga=GA1.1.271559470.1706765089&semt=ais_user",
       },
       {
         id: 35,

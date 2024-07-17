@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { RestCard } from "../Components/RestCard";
 import { RatedCard } from "../Components/RatedCard";
-import { RatedFood, foodData } from "../Components/Data";
+import { RatedFood, RestaurantList, foodData } from "../Components/Data";
 import { useNavigate } from "react-router-dom";
 
 import SkeletonLoader from "../Components/SkeletonLoader";
@@ -328,6 +328,25 @@ export const Body = ({ cart, setcart, userData }) => {
             )}
           </div>
         ))}
+        {RestaurantList.map((restaurant) => {
+          if (restaurant.menu && restaurant.menu.length > 0) {
+            const data = restaurant.menu[0];
+            return (
+              <RestCard
+                cart={cart}
+                id={data.id}
+                setcart={setcart}
+                key={data.id}
+                data={data}
+                title={data.name}
+                description={data.description}
+                image={data.image_url}
+                price={data.price}
+              />
+            );
+          }
+          return null;
+        })}
       </div>
 
       <ExploreOptions />
