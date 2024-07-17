@@ -4,7 +4,7 @@ const router = Router();
 
 router.get("/signupcc", (req, res) => {
   res.json({
-    msg: "User endpoint",
+    msg: "User endpoints",
   });
 });
 
