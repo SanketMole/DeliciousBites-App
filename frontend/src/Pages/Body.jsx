@@ -10,8 +10,9 @@ import TopSearch from "../Components/TopSearch";
 import ExploreOptions from "../Components/ExploreOptions";
 import { Header } from "../Components/Header";
 import ImageFood from "../Components/ImageFood";
-import Footer from "../Components/Footer";
 
+import Footer from "../Components/Footer";
+import "../App.css";
 export const Body = ({ cart, setcart, userData }) => {
   const [val, setVal] = useState("");
   const [filterFood, setfilterFood] = useState([]);
@@ -170,9 +171,14 @@ export const Body = ({ cart, setcart, userData }) => {
         }}
       ></div>
       <ImageFood />
-      <div className="flex justify-center ">
+      <div className="flex justify-center my-14 ">
+        <img
+          src="https://raw.githubusercontent.com/Mridul2820/css-projects/master/Transitions/css-animation-creative-examples/driving-car-and-bike-using-css-animation/motobike.png"
+          alt="motorbike"
+          className="h-20 mt-4 w-20 animate-bike"
+        />
         <div className="text-center my-8 w-full max-w-3xl">
-          <div className="flex my-14 mx-4 px-2 h-16 py-3 border-4 border-blue-900 rounded-2xl font-sans bg-white shadow-lg">
+          <div className="flex my-14 mx-4 px-2 h-16  py-3 border-4 border-blue-900 rounded-2xl font-sans bg-white shadow-lg input-container">
             <input
               type="search"
               placeholder="Search Something..."
@@ -183,16 +189,6 @@ export const Body = ({ cart, setcart, userData }) => {
               }}
             />
 
-            {/* <img
-              src="https://raw.githubusercontent.com/Mridul2820/css-projects/master/Transitions/css-animation-creative-examples/driving-car-and-bike-using-css-animation/motobike.png"
-              alt="motorbike"
-              className="absolute h-12 top-1/2 -translate-y-1/2 animate-bike"
-              style={{
-                animation: `move-bike 5s linear infinite`,
-                left: "5%", // Initial position left
-                right: "5%", // Final position right
-              }}
-            /> */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 192.904 192.904"
@@ -202,6 +198,7 @@ export const Body = ({ cart, setcart, userData }) => {
               <path d="m190.707 180.101-47.078-47.077c11.702-14.072 18.752-32.142 18.752-51.831C162.381 36.423 125.959 0 81.191 0 36.422 0 0 36.423 0 81.193c0 44.767 36.422 81.187 81.191 81.187 19.688 0 37.759-7.049 51.831-18.751l47.079 47.078a7.474 7.474 0 0 0 5.303 2.197 7.498 7.498 0 0 0 5.303-12.803zM15 81.193C15 44.694 44.693 15 81.191 15c36.497 0 66.189 29.694 66.189 66.193 0 36.496-29.692 66.187-66.189 66.187C44.693 147.38 15 117.689 15 81.193z" />
             </svg>
           </div>
+
           <div className="flex flex-col sm:flex-row justify-center items-center space-x-4">
             <label className="flex items-center space-x-2 cursor-pointer">
               <input
@@ -210,6 +207,7 @@ export const Body = ({ cart, setcart, userData }) => {
                 onChange={() => setcheck(!check)}
                 checked={check}
               />
+
               <span className="text-gray-700">Top Rated Food</span>
             </label>
             <select

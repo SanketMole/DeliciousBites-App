@@ -1,14 +1,16 @@
-@keyframes bike {
+@keyframes moveBike {
   0% {
-    left: -50px;
+    transform: translateX(0%);
   }
   100% {
-    left: calc(100% + 50px);
+    transform: translateX(900%);
   }
 }
 
 .animate-bike {
-  animation: bike 5s linear infinite;
+  animation: moveBike 8s linear infinite;
+  mix-blend-mode: multiply;
+  filter: contrast(1);
 }
 
 /* Add this CSS in your stylesheet */
