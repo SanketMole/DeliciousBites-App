@@ -170,13 +170,9 @@ export const Body = ({ cart, setcart, userData }) => {
           backgroundImage: `url('https://img.freepik.com/premium-photo/top-view-scene-thanksgiving-celebration-traditional-dinner-setting-food-conceptthanksgiving-dinner_217051-5021.jpg?w=1380')`,
         }}
       ></div>
+
       <ImageFood />
       <div className="flex justify-center my-14 ">
-        <img
-          src="https://raw.githubusercontent.com/Mridul2820/css-projects/master/Transitions/css-animation-creative-examples/driving-car-and-bike-using-css-animation/motobike.png"
-          alt="motorbike"
-          className="h-20 mt-4 w-20 animate-bike"
-        />
         <div className="text-center my-8 w-full max-w-3xl">
           <div className="flex my-14 mx-4 px-2 h-16  py-3 border-4 border-blue-900 rounded-2xl font-sans bg-white shadow-lg input-container">
             <input

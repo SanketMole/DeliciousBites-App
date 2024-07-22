@@ -1,6 +1,7 @@
 // src/App.js
 
 import React from "react";
+import bike from "../assets/bi.png";
 
 const images = [
   {
@@ -36,7 +37,11 @@ const images = [
 function ImageFood() {
   return (
     <div className="container -my-20 px-16 py-4">
-      <h1 className="text-3xl font-bold mb-4 my-2">What's on your mind?</h1>
+      <h1 className="text-3xl font-bold  ">What's on your mind?</h1>
+
+      {/* https://raw.githubusercontent.com/Mridul2820/css-projects/master/Transitions/css-animation-creative-examples/driving-car-and-bike-using-css-animation/motobike.png */}
+      <img src={bike} alt="motorbike" className="h-28 mt-4 w-28 animate-bike" />
+
       <div className="grid grid-cols-2 sm:grid-cols-7 gap-4">
         {images.map((image, index) => (
           <div
