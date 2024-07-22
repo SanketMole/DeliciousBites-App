@@ -40,7 +40,7 @@ function ImageFood() {
       <h1 className="text-3xl font-bold  ">What's on your mind?</h1>
 
       {/* https://raw.githubusercontent.com/Mridul2820/css-projects/master/Transitions/css-animation-creative-examples/driving-car-and-bike-using-css-animation/motobike.png */}
-      <img src={bike} alt="motorbike" className="h-28 mt-4 w-28 animate-bike" />
+      <img src={bike} alt="motorbike" className="h-42 mt-4 w-42 animate-bike" />
 
       <div className="grid grid-cols-2 sm:grid-cols-7 gap-4">
         {images.map((image, index) => (
