@@ -8,9 +8,9 @@
 }
 
 .animate-bike {
-  animation: moveBike 5s linear infinite;
+  animation: moveBike 8s linear infinite;
   mix-blend-mode: multiply;
-  filter: contrast(1);
+  /* filter: contrast(1); */
 }
 
 /* Add this CSS in your stylesheet */
