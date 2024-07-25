@@ -1,12 +1,33 @@
 @keyframes moveBike {
   0% {
-    transform: translateX(1100%);
+    transform: translateX(900%);
   }
   100% {
     transform: translateX(0%);
   }
 }
 
+@media (max-width: 768px) {
+  @keyframes moveBike {
+    0% {
+      transform: translateX(600%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  @keyframes moveBike {
+    0% {
+      transform: translateX(300%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+}
 .animate-bike {
   animation: moveBike 8s linear infinite;
   mix-blend-mode: multiply;
@@ -53,4 +74,8 @@
 
 .toggle-button.active.red {
   background-color: #f5b7b7;
+}
+
+.container {
+  max-width: 100%;
 }

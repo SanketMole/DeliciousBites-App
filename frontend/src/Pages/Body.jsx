@@ -320,25 +320,6 @@ export const Body = ({ cart, setcart, userData }) => {
             )}
           </div>
         ))}
-        {RestaurantList.map((restaurant) => {
-          if (restaurant.menu && restaurant.menu.length > 0) {
-            const data = restaurant.menu[0];
-            return (
-              <RestCard
-                cart={cart}
-                id={data.id}
-                setcart={setcart}
-                key={data.id}
-                data={data}
-                title={data.name}
-                description={data.description}
-                image={data.image_url}
-                price={data.price}
-              />
-            );
-          }
-          return null;
-        })}
       </div>
 
       <ExploreOptions />
