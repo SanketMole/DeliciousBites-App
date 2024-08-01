@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Restaurant from "../Components/Restaurant";
-import axios from "axios";
 import { RestaurantList } from "../Components/Data";
 
 const RestaurantPage = () => {
@@ -18,49 +17,76 @@ const RestaurantPage = () => {
   }
 
   useEffect(() => {
-    const filtrest = swiggydata.filter((data) => {
+    const filtered = swiggydata.filter((data) => {
       return (
         data.city.toLowerCase().includes(place.toLowerCase()) ||
         data.restaurant_name.toLowerCase().includes(place.toLowerCase())
       );
     });
 
-    setRestaurant(filtrest);
-
-    if (filtrest.length === 0) {
-      setNoResults(true);
-    } else {
-      setNoResults(false);
-    }
+    setRestaurant(filtered);
+    setNoResults(filtered.length === 0);
   }, [place, swiggydata]);
 
   return (
-    <>
-      <div className="flex justify-center mt-28 border-black ">
+    <div className="container mx-auto px-4">
+      {/* Search Bar with Clear Button and Search Icon */}
+      <div className="relative flex justify-center mt-16 mb-8">
         <input
-          onChange={(e) => {
-            setPlace(e.target.value);
-          }}
+          onChange={(e) => setPlace(e.target.value)}
           type="text"
-          placeholder="Search"
-          className="w-64 h-8 rounded-md"
+          placeholder="Search Restaurants"
+          className="bg-gray-100 rounded-md px-6 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 w-full md:w-3/4 lg:w-1/2 xl:w-1/3"
         />
+        <button
+          onClick={() => setPlace("")}
+          className="absolute right-2 top-2 text-gray-500 focus:outline-none"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <svg
+          className="absolute left-3 top-2 w-6 h-6 text-gray-500"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M11 4a7 7 0 100 14 7 7 0 000-14zM4.22 4.22a9 9 0 0112.56 0m-1.27 12.44a9 9 0 01-12.56 0"
+          />
+        </svg>
       </div>
 
+      {/* Popular Cities Section */}
+
+      {/* No Results Message */}
       {noResults && (
-        <div className="text-center text-red-500 mt-2">No results found</div>
+        <div className="text-center text-red-500 mt-4 text-lg font-semibold">
+          No results found
+        </div>
       )}
 
-      <div className="flex flex-wrap  my-20 sm:my-10 md:my-10 sm:p-14 md:p-14 mx-6  ">
-        {restaurant.map((data) => {
-          return (
-            <div className="w-42 sm:w-1/2 md:w-1/3 px-1 ">
-              <Restaurant key={data.id} swiggydata={data} />
-            </div>
-          );
-        })}
+      {/* Cards Section */}
+      <div className="grid grid-cols-3 gap-4 mt-12">
+        {restaurant.map((data) => (
+          <Restaurant key={data.id} swiggydata={data} />
+        ))}
       </div>
-    </>
+    </div>
   );
 };
 

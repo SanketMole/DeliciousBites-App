@@ -3,7 +3,6 @@ import { RestCard } from "../Components/RestCard";
 import { RatedCard } from "../Components/RatedCard";
 import { RatedFood, RestaurantList, foodData } from "../Components/Data";
 import { useNavigate } from "react-router-dom";
-
 import SkeletonLoader from "../Components/SkeletonLoader";
 import HomePage from "./HomePage";
 import TopSearch from "../Components/TopSearch";
@@ -11,9 +10,9 @@ import ExploreOptions from "../Components/ExploreOptions";
 import { Header } from "../Components/Header";
 import ImageFood from "../Components/ImageFood";
 import HeaderImage from "../assets/Header.png";
-
 import Footer from "../Components/Footer";
 import "../App.css";
+
 export const Body = ({ cart, setcart, userData }) => {
   const [val, setVal] = useState("");
   const [filterFood, setfilterFood] = useState([]);
@@ -68,7 +67,7 @@ export const Body = ({ cart, setcart, userData }) => {
     setStar1(maine);
   }, [main]);
 
-  //..................................................
+  //...................................................
 
   useEffect(() => {
     const bre = foodData.filter((data) => {
@@ -78,7 +77,7 @@ export const Body = ({ cart, setcart, userData }) => {
     setStar1(bre);
   }, [breake]);
 
-  //.................................................
+  //..........................................................
 
   const navigate = useNavigate();
 
@@ -164,11 +163,9 @@ export const Body = ({ cart, setcart, userData }) => {
   return (
     <div className="">
       <Header cart={cart} setcart={setcart} userData={userData} />
-
       <div className="my-16 flex items-center justify-center">
         <img className="" src={HeaderImage} />
       </div>
-
       <ImageFood />
       <div className="flex justify-center my-14 ">
         <div className="text-center my-8 w-full max-w-3xl">
@@ -276,10 +273,13 @@ export const Body = ({ cart, setcart, userData }) => {
           </div>
         </div>
       </div>
-
       <div className="flex flex-wrap  gap-5 mt-12 ">
         {noResults && (
-          <div className="text-red-500 justify-center">No results found</div>
+          <div className="flex justify-center items-center w-full">
+            <h2 className="text-2xl font-bold text-red-500">
+              No results found
+            </h2>
+          </div>
         )}
 
         {(loading
@@ -321,49 +321,46 @@ export const Body = ({ cart, setcart, userData }) => {
           </div>
         ))}
       </div>
-
       <ExploreOptions />
-
-      <div className="bg-gradient-to-r from-blue-50 to-blue-100 py-16">
-        <h2 className="text-4xl font-bold text-center mb-10 text-blue-900">
+      <div className="bg-gradient-to-r from-purple-50 to-pink-100 py-8 sm:py-16">
+        <h2 className="text-2xl sm:text-4xl font-bold text-center mb-6 sm:mb-10 text-purple-900">
           What Our Users Say
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-center px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8 justify-center px-2 sm:px-4">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300"
+              className="bg-white p-4 sm:p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300"
             >
-              <p className="text-gray-700 text-lg mb-6 italic">
+              <p className="text-gray-700 text-base sm:text-lg mb-4 sm:mb-6 italic">
                 "{testimonial.comment}"
               </p>
-              <p className="text-blue-600 font-semibold">{testimonial.name}</p>
+              <p className="text-purple-600 font-semibold">
+                {testimonial.name}
+              </p>
             </div>
           ))}
         </div>
       </div>
-
       {/* Call-to-Action Banner */}
-      <div className="relative bg-blue-600 text-white py-16 mt-16 text-center">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-700 opacity-75"></div>
+      <div className="relative bg-purple-600 text-white py-8 sm:py-16 mt-8 sm:mt-16 text-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-75"></div>
         <div className="relative z-10">
-          <h2 className="text-5xl font-extrabold mb-6">
+          <h2 className="text-3xl sm:text-5xl font-extrabold mb-4 sm:mb-6 animate-fade-in">
             Discover the Best Food Around You!
           </h2>
-          <p className="text-xl mb-8">
+          <p className="text-lg sm:text-xl mb-6 sm:mb-8 animate-fade-in delay-1s">
             Join our community and enjoy the finest dishes.
           </p>
           <button
-            className="bg-white text-blue-600 rounded-full px-8 py-4 text-lg hover:bg-gray-100 shadow-2xl transition-all duration-300"
+            className="bg-white text-purple-600 rounded-full px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg hover:bg-gray-100 shadow-2xl transition-all duration-300 animate-bounce"
             onClick={handlenavigate}
           >
             Explore Restaurants
           </button>
         </div>
       </div>
-
       <Footer />
     </div>
   );
 };
-7;

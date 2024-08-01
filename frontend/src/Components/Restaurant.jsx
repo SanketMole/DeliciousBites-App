@@ -3,13 +3,28 @@ import { Link } from "react-router-dom";
 
 const Restaurant = ({ swiggydata }) => {
   return (
-    <div className="my-8 mx-4 shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out rounded-2xl overflow-hidden bg-white">
-      <div className="max-w-sm rounded-2xl overflow-hidden shadow-xl">
+    <div className="my-8 mx-4    duration-300 ease-in-out rounded-2xl overflow-hidden bg-white">
+      <div className="relative max-w-sm rounded-2xl overflow-hidden shadow-xl">
         <img
           className="h-60 w-full object-cover"
           src={swiggydata.image_url}
           alt={swiggydata.restaurant_name}
         />
+        <div className="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+          {swiggydata.offer ? `${swiggydata.offer}% OFF` : "No Offer"}
+        </div>
+        <div className="absolute top-4 right-4">
+          <button className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300 ease-in-out">
+            <svg
+              className="w-6 h-6 text-red-500"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 18.343l-6.828-6.828a4 4 0 010-5.656z" />
+            </svg>
+          </button>
+        </div>
         <div className="px-6 py-4">
           <div className="flex justify-between items-start">
             <div>
@@ -50,10 +65,10 @@ const Restaurant = ({ swiggydata }) => {
             </div>
           </div>
         </div>
-        <div className="px-6 py-4 flex r">
+        <div className="px-6 py-4 flex justify-between items-center">
           <Link to={`/more/${swiggydata.id}`}>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300 ease-in-out">
-              Explore More
+            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300 ease-in-out">
+              Order Now
             </button>
           </Link>
         </div>

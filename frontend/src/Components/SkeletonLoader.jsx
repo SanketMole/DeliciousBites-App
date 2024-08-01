@@ -3,8 +3,8 @@ import React from "react";
 const SkeletonLoader = () => {
   return (
     <div>
-      <div className="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96 ">
-        <div className="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-gray-400 "></div>
+      <div className="relative flex flex-col mt-6 mx-5 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96 ">
+        <div className="relative h-56 mx-6 -mt-6 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-gray-400 "></div>
         <div className="p-10">
           <div className="flex justify-end h-10">
             <div className="w-6 h-6 bg-gray-400 rounded-full"></div>

@@ -13,7 +13,9 @@ export const RestCard = ({
   price,
 }) => {
   return (
-    <div className="mx-10">
+    <div className="ml-20">
+      {" "}
+      {/* Adjusted margin-left to move the card to the right */}
       <div className="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96 transition-transform transform hover:scale-105 hover:shadow-xl">
         <div className="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40">
           <img

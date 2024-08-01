@@ -18,7 +18,7 @@ const Login = () => {
     localStorage.setItem("token", response.data.token);
     const finaltoken = localStorage.getItem("token");
     if (finaltoken === response.data.token) {
-      navigate("/body");
+      navigate("/");
     } else {
       alert("wrong info");
     }

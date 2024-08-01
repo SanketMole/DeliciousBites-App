@@ -14,7 +14,9 @@ export const RatedCard = ({
 }) => {
   console.log(cart);
   return (
-    <div className="m-6">
+    <div className="m-6 ml-20">
+      {" "}
+      {/* Adjusted margin-left to move the card to the right */}
       <div className="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
         <div className="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40">
           <img
@@ -24,7 +26,11 @@ export const RatedCard = ({
         </div>
         <div className="p-6">
           <div className="flex justify-end h-10">
-            {data.vegetarian ? <img src={veg} /> : <img src={nonveg} />}
+            {data.vegetarian ? (
+              <img src={veg} alt="veg" />
+            ) : (
+              <img src={nonveg} alt="non-veg" />
+            )}
           </div>
           <h5 className="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
             {data.title}
@@ -33,7 +39,7 @@ export const RatedCard = ({
             {data.description}
           </p>
         </div>
-        <div className="p-4 pt-0  ">
+        <div className="p-4 pt-0">
           <button
             onClick={() => {
               setcart((prevCart) => {
@@ -54,7 +60,7 @@ export const RatedCard = ({
           >
             -
           </button>
-          <span className="px-2  font-bold text-3xl">
+          <span className="px-2 font-bold text-3xl">
             {cart[id]?.quantity || 0}
           </span>
           <button
@@ -72,7 +78,7 @@ export const RatedCard = ({
                 };
               });
             }}
-            className="mx-4 border-2 border-black  font-bold text-3xl rounded-full px-2"
+            className="mx-4 border-2 border-black font-bold text-3xl rounded-full px-2"
           >
             +
           </button>

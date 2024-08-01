@@ -27,18 +27,20 @@ const ExploreOptions = () => {
   };
 
   return (
-    <div className=" p-8 my-10">
-      <h2 className="text-2xl font-semibold mb-6">Explore options near me</h2>
+    <div className="p-8 my-10 bg-gradient-to-r from-gray-50 to-blue-50 rounded-lg shadow-lg">
+      <h2 className="text-3xl font-bold mb-8 text-center text-blue-800">
+        Explore Options Near Me
+      </h2>
       {options.map((option, index) => (
-        <div key={index} className="mb-4">
+        <div key={index} className="mb-6">
           <button
             onClick={() => toggleOption(index)}
-            className="w-full flex justify-between items-center p-4 border rounded-lg shadow-sm bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full flex justify-between items-center p-4 border rounded-lg shadow-md bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
           >
-            <span className="text-gray-700">{option.title}</span>
+            <span className="text-blue-700 font-medium">{option.title}</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className={`h-6 w-6 text-gray-500 transition-transform ${
+              className={`h-6 w-6 text-blue-500 transition-transform ${
                 openIndex === index ? "transform rotate-180" : ""
               }`}
               fill="none"
@@ -54,8 +56,8 @@ const ExploreOptions = () => {
             </svg>
           </button>
           {openIndex === index && (
-            <div className="p-4 bg-gray-50 mt-2 rounded-lg">
-              {option.content}
+            <div className="p-4 bg-white mt-2 rounded-lg shadow-inner border-l-4 border-blue-500 transition-all duration-300">
+              <p className="text-gray-700">{option.content}</p>
             </div>
           )}
         </div>

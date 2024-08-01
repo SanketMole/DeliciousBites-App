@@ -160,7 +160,7 @@ export const RatedFood = [
   {
     id: 1,
     imageUrl:
-      "https://media.istockphoto.com/id/1488738060/photo/south-indian-veg-thali.webp?b=1&s=170667a&w=0&k=20&c=gm_9MP4A3xZwuVI_Dzd7kkfHLSZ_HJZFiKrZS-Hg4S8=",
+      "https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/health/wp-content/uploads/2022/01/foods_to_eat_to_lose_weight.jpeg",
     title: "Chicken Tikka Masala",
     description:
       "Creamy and flavorful Indian curry dish with tender chicken pieces.",

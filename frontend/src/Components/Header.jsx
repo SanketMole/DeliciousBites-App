@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import car from "../assets/cart.png";
+import cart from "../assets/cart.png";
 import dman from "../assets/dman.avif";
 import { useState, useEffect } from "react";
 
@@ -67,7 +67,7 @@ export const Header = ({ cart, userData, setcart }) => {
             </a>
           </div>
           <div className="hidden md:flex md:items-center md:justify-center md:gap-5">
-            <Link to="/body">
+            <Link to="/">
               <span
                 aria-current="page"
                 className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
@@ -117,14 +117,21 @@ export const Header = ({ cart, userData, setcart }) => {
             {!isLoginPage && (
               <div className="flex items-center">
                 <Link to="/view">
-                  <img className="h-10" src={car} alt="Cart icon" />
+                  <img className="h-10" src={cart} alt="Cart icon" />
                 </Link>
                 <p className="ml-2 font-bold">{totalQuantity}</p>
               </div>
             )}
-            <span className=" bg-purple-900 px-5  hidden items-center justify-center rounded-full text-white  py-2  text-3xl font-semibold shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-purple-800 sm:inline-flex">
-              {userData.firstName}
-            </span>
+            <div className="relative">
+              <img
+                src="https://img.freepik.com/premium-vector/cartoon-character-portrait-smiling-boy_684058-737.jpg" // Replace with your image URL
+                alt="User"
+                className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-lg"
+              />
+              <span className="absolute bottom-0 right-0 bg-purple-800 p-1 rounded-full text-white text-xs font-semibold shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150">
+                {/* Optional: Add any additional content here */}
+              </span>
+            </div>
           </div>
         </div>
       </div>

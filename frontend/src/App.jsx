@@ -39,7 +39,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route
-            path="/body"
+            path="/"
             element={<Body cart={cart} setcart={setcart} userData={userData} />}
           />
           <Route path="/restaurantlist" element={<RestaurantPage />} />
