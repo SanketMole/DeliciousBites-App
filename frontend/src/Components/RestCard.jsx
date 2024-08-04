@@ -39,7 +39,7 @@ export const RestCard = ({
             {description}
           </p>
         </div>
-        <div className="p-3 pt-0 rounded-md">
+        <div className="p-3 pt-0 rounded-md ">
           <button
             onClick={() => {
               setcart((prevCart) => {
@@ -84,7 +84,7 @@ export const RestCard = ({
           </button>
           <Link to="/view">
             <button
-              className="align-middle select-none font-sans font-bold text-center uppercase transition-all text-xs py-3 px-3 rounded-lg bg-gray-900 text-white shadow-md hover:shadow-lg mb-4 ml-20"
+              className="align-middle  font-sans font-bold text-center uppercase transition-all text-xs py-3 px-3  rounded-lg bg-gray-900 text-white shadow-md hover:shadow-lg mt-2 my-3"
               type="button"
             >
               View Cart

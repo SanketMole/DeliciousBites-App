@@ -1,5 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import cart from "../assets/cart.png";
+import car from "../assets/cart.png";
+
 import dman from "../assets/dman.avif";
 import { useState, useEffect } from "react";
 
@@ -16,13 +17,15 @@ export const Header = ({ cart, userData, setcart }) => {
   }
   const navigate = useNavigate();
 
-  const isLoginPage = location.pathname === "/";
-
   useEffect(() => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
+
+          if (localStorage.getItem("token") == "") {
+            setlog(false);
+          }
           fetch(
             `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
           )
@@ -92,45 +95,44 @@ export const Header = ({ cart, userData, setcart }) => {
             </Link>
           </div>
           <div className="flex items-center justify-end gap-3">
-            {log ? (
+            {!log ? (
+              <button
+                onClick={() => {
+                  navigate("/login");
+                }}
+                se
+                className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500"
+              >
+                Login
+              </button>
+            ) : (
               <button
                 onClick={() => {
                   localStorage.removeItem("token");
                   navigate("/login");
                   setlog(false);
+                  setIsLoginPage(false);
                 }}
                 className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500"
               >
                 Logout
               </button>
-            ) : (
-              <button
-                onClick={() => {
-                  navigate("/login");
-                }}
-                className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500"
-              >
-                Login
-              </button>
             )}
 
-            {!isLoginPage && (
-              <div className="flex items-center">
-                <Link to="/view">
-                  <img className="h-10" src={cart} alt="Cart icon" />
-                </Link>
-                <p className="ml-2 font-bold">{totalQuantity}</p>
-              </div>
-            )}
+            <div className="flex items-center">
+              <Link to="/view">
+                <img className="h-10" src={car} alt="Cart-icon" />
+              </Link>
+              <p className="ml-2 font-bold">{totalQuantity}</p>
+            </div>
+
             <div className="relative">
               <img
-                src="https://img.freepik.com/premium-vector/cartoon-character-portrait-smiling-boy_684058-737.jpg" // Replace with your image URL
+                src="https://img.freepik.com/premium-vector/cartoon-character-portrait-smiling-boy_684058-737.jpg"
                 alt="User"
                 className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-lg"
               />
-              <span className="absolute bottom-0 right-0 bg-purple-800 p-1 rounded-full text-white text-xs font-semibold shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150">
-                {/* Optional: Add any additional content here */}
-              </span>
+              <span className="absolute bottom-0 right-0 bg-purple-800 p-1 rounded-full text-white text-xs font-semibold shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150"></span>
             </div>
           </div>
         </div>
