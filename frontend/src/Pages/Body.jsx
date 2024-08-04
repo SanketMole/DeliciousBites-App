@@ -163,12 +163,15 @@ export const Body = ({ cart, setcart, userData }) => {
   return (
     <div className="">
       <Header cart={cart} setcart={setcart} userData={userData} />
-      <div className="my-16 flex items-center justify-center">
-        <img className="" src={HeaderImage} />
+      <div className="md:mx-32 -m-16 md:my-10 md:h-full   ">
+        <img
+          className="md:m-16 m-20 my-32  md:w-full w-[1000px]  md:mx-4 md:h-full h-full  "
+          src={HeaderImage}
+        />
       </div>
       <ImageFood />
-      <div className="flex justify-center my-14 ">
-        <div className="text-center my-8 w-full max-w-3xl">
+      <div className="flex justify-center  ">
+        <div className="text-center md:my-8  -my-10 w-full max-w-3xl">
           <div className="flex my-14 mx-4 px-2 h-16  py-3 border-4 border-blue-900 rounded-2xl font-sans bg-white shadow-lg input-container">
             <input
               type="search"

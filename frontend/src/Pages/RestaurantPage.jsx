@@ -81,7 +81,7 @@ const RestaurantPage = () => {
       )}
 
       {/* Cards Section */}
-      <div className="grid grid-cols-3 gap-4 mt-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 p-3 mt-12">
         {restaurant.map((data) => (
           <Restaurant key={data.id} swiggydata={data} />
         ))}

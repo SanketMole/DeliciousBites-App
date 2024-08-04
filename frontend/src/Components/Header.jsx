@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import car from "../assets/cart.png";
+import car from "../assets/carrt.png";
 
 import dman from "../assets/dman.avif";
 import { useState, useEffect } from "react";
@@ -121,9 +121,9 @@ export const Header = ({ cart, userData, setcart }) => {
 
             <div className="flex items-center">
               <Link to="/view">
-                <img className="h-10" src={car} alt="Cart-icon" />
+                <img className="h-20" src={car} alt="Cart-icon" />
               </Link>
-              <p className="ml-2 font-bold">{totalQuantity}</p>
+              <p className="-mx-1 font-bold text-xl">{totalQuantity}</p>
             </div>
 
             <div className="relative">

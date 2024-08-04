@@ -36,18 +36,24 @@ const images = [
 
 function ImageFood() {
   return (
-    <div className="container -my-20 px-16 py-4">
-      <h1 className="text-4xl font-semibold my-3 ">What's on your mind?</h1>
+    <div className="">
+      <h1 className="hidden md:block md:text-4xl font-bold text-3xl md:mx-10  ">
+        What's on your mind?
+      </h1>
 
       {/* https://raw.githubusercontent.com/Mridul2820/css-projects/master/Transitions/css-animation-creative-examples/driving-car-and-bike-using-css-animation/motobike.png */}
-      {/* <img src={bike} alt="motorbike" className="h-32 mt-4 w-32 animate-bike" /> */}
+      <img
+        src={bike}
+        alt="motorbike"
+        className="hidden md:block h-32 mt-4 w-32 animate-bike"
+      />
 
-      <div className="grid grid-cols-2 sm:grid-cols-7 gap-4">
+      <div className="hidden md:inline-flex   sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
         {images.map((image, index) => (
           <div
             id="#food"
             key={index}
-            className="flex flex-col items-center bg-white p-4 rounded-lg shadow-md"
+            className="flex flex-col items-center mx-4 bg-white p-4 rounded-lg shadow-md"
           >
             <img
               src={image.src}
