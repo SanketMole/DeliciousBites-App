@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Restaurant = ({ swiggydata }) => {
+const Restaurant = ({ swiggydata, cart, setcart }) => {
   return (
     <div className="my-8 mx-4 duration-300 ease-in-out rounded-2xl overflow-hidden bg-white w-full">
       <div className="relative max-w-sm  rounded-2xl overflow-hidden shadow-xl">

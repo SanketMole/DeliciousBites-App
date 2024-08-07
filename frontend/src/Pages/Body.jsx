@@ -170,112 +170,96 @@ export const Body = ({ cart, setcart, userData }) => {
         />
       </div>
       <ImageFood />
-      <div className="flex justify-center  ">
-        <div className="text-center md:my-8  -my-10 w-full max-w-3xl">
-          <div className="flex my-14 mx-4 px-2 h-16  py-3 border-4 border-blue-900 rounded-2xl font-sans bg-white shadow-lg input-container">
+      <div className="flex flex-col items-center py-6">
+        <div className="w-full max-w-3xl px-4">
+          <div className="flex w-96 md:w-full mx-10 md:flex-row items-center justify-between my-4 px-4 py-3 border-4 border-blue-900 rounded-2xl bg-white shadow-lg">
             <input
               type="search"
               placeholder="Search Something..."
-              className="w-full outline-none bg-transparent text-gray-600 text-sm px-4"
+              className="w-full md:w-auto outline-none bg-transparent text-gray-600 text-sm px-4 py-2 rounded-md"
               onChange={(e) => {
                 setVal(e.target.value);
                 setloading(true);
               }}
             />
-
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 192.904 192.904"
               width="24px"
-              className="fill-gray-600"
+              className="fill-gray-600 ml-2"
             >
               <path d="m190.707 180.101-47.078-47.077c11.702-14.072 18.752-32.142 18.752-51.831C162.381 36.423 125.959 0 81.191 0 36.422 0 0 36.423 0 81.193c0 44.767 36.422 81.187 81.191 81.187 19.688 0 37.759-7.049 51.831-18.751l47.079 47.078a7.474 7.474 0 0 0 5.303 2.197 7.498 7.498 0 0 0 5.303-12.803zM15 81.193C15 44.694 44.693 15 81.191 15c36.497 0 66.189 29.694 66.189 66.193 0 36.496-29.692 66.187-66.189 66.187C44.693 147.38 15 117.689 15 81.193z" />
             </svg>
           </div>
 
-          <div className="flex flex-col sm:flex-row justify-center items-center space-x-4">
-            <label className="flex items-center space-x-2 cursor-pointer">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-6 ">
+            <label className="flex items-center space-x-2 cursor-pointer ">
               <input
                 type="checkbox"
-                className="form-checkbox h-5 w-5 text-blue-600"
+                className="form-checkbox h-5 w-5  text-blue-600"
                 onChange={() => setcheck(!check)}
                 checked={check}
               />
-
               <span className="text-gray-700">Top Rated Food</span>
             </label>
             <select
               onChange={handleStar}
-              className="border-2 border-black rounded-md w-48 h-12 sm:h-10 text-gray-700"
+              className="border-2  border-gray-300 rounded-md w-full md:w-48 h-12 text-gray-700"
             >
               <option value="0">Select based on rating</option>
               <option value="4.8">Rating 4.8+</option>
               <option value="4">Rating 4+</option>
             </select>
             <button
-              className="bg-blue-500 text-white rounded-md px-4 py-2 hover:bg-blue-600"
+              className="bg-blue-500 md:mx-0 text-white rounded-md px-4 py-2 hover:bg-blue-600 transition duration-150"
               onClick={handlenavigate}
             >
               View All Restaurants
             </button>
           </div>
-          <div className="">
-            <div>
-              <div className="mt-4 flex flex-wrap justify-center space-x-2 sm:space-x-4">
-                <button
-                  onClick={() => {
-                    setStar1(foodData);
-                  }}
-                  className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300"
-                >
-                  All
-                </button>
 
-                <button
-                  onClick={() => {
-                    setbreake(!breake);
-                  }}
-                  className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300"
-                >
-                  BreakFast
-                </button>
-                <button
-                  onClick={() => {
-                    setmain(!main);
-                  }}
-                  className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300"
-                >
-                  Main course
-                </button>
-                <button
-                  onClick={() => {
-                    setdessert(!desert);
-                  }}
-                  className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300"
-                >
-                  Desserts
-                </button>
-                <button
-                  onClick={() => {
-                    setveg(!veg);
-                  }}
-                  className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300"
-                >
-                  Veg
-                </button>
-                <button
-                  onClick={() => {
-                    setnonveg(!nonveg);
-                  }}
-                  className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300"
-                >
-                  Non-Veg
-                </button>
-              </div>
-            </div>
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
+            <button
+              onClick={() => setStar1(foodData)}
+              className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300"
+            >
+              All
+            </button>
+
+            <button
+              onClick={() => setbreake(!breake)}
+              className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300"
+            >
+              Breakfast
+            </button>
+            <button
+              onClick={() => setmain(!main)}
+              className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300"
+            >
+              Main Course
+            </button>
+            <button
+              onClick={() => setdessert(!dessert)}
+              className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300"
+            >
+              Desserts
+            </button>
+            <button
+              onClick={() => setveg(!veg)}
+              className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300"
+            >
+              Veg
+            </button>
+            <button
+              onClick={() => setnonveg(!nonveg)}
+              className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300"
+            >
+              Non-Veg
+            </button>
           </div>
         </div>
       </div>
+
       <div className="flex flex-wrap  gap-5 mt-12 ">
         {noResults && (
           <div className="flex justify-center items-center w-full">

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { RestaurantList } from "../Components/Data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import { Header } from "../Components/Header";
 
 const More = ({ cart, setcart }) => {
   const { id } = useParams();
@@ -83,6 +84,7 @@ const More = ({ cart, setcart }) => {
 
   return (
     <div className="max-w-4xl mx-auto mt-5 p-5 bg-white shadow-md">
+      <Header cart={cart} setcart={setcart} />
       <div className="flex justify-between items-center border-b pb-4 mb-4">
         <h1 className="text-xl font-bold">{restaurant.name}</h1>
         <span className="text-gray-600">40-45 mins</span>
