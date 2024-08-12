@@ -12,6 +12,7 @@ import ImageFood from "../Components/ImageFood";
 import HeaderImage from "../assets/Header.png";
 import Footer from "../Components/Footer";
 import "../App.css";
+import { useDebounce } from "../../custom/Debounce";
 
 export const Body = ({ cart, setcart, userData }) => {
   const [val, setVal] = useState("");
@@ -32,6 +33,9 @@ export const Body = ({ cart, setcart, userData }) => {
   const [breake, setbreake] = useState(false);
 
   //...........................................
+
+  const debounced = useDebounce(val, 500);
+
   useEffect(() => {
     const veggie = foodData.filter((data) => {
       return data.vegetarian;
@@ -39,7 +43,6 @@ export const Body = ({ cart, setcart, userData }) => {
 
     setStar1(veggie);
   }, [veg]);
-  console.log(veg);
 
   useEffect(() => {
     const nonveggie = foodData.filter((data) => {
@@ -86,26 +89,27 @@ export const Body = ({ cart, setcart, userData }) => {
   }
   //...............................................................
   useEffect(() => {
+    console.log("TESTING VAL BRO");
     setTimeout(() => {
       setloading(false);
-    }, 500);
+    }, 100);
 
     const filtered = foodData.filter((data) => {
       return (
-        data.title.toLowerCase().includes(val.toLowerCase()) ||
-        data.description.toLowerCase().includes(val.toLowerCase())
+        data.title.toLowerCase().includes(debounced.toLowerCase()) ||
+        data.description.toLowerCase().includes(debounced.toLowerCase())
       );
     });
     const indianfilter = RatedFood.filter((data) => {
       return (
-        data.title.toLowerCase().includes(val.toLowerCase()) ||
-        data.description.toLowerCase().includes(val.toLowerCase())
+        data.title.toLowerCase().includes(debounced.toLowerCase()) ||
+        data.description.toLowerCase().includes(debounced.toLowerCase())
       );
     });
 
     setfilterFood(filtered);
     settopfood(indianfilter);
-  }, [val]);
+  }, [debounced]);
 
   //................................................................
   useEffect(() => {
@@ -157,8 +161,6 @@ export const Body = ({ cart, setcart, userData }) => {
     { name: "Jane Smith", comment: "Loved the ambiance and the dishes." },
     { name: "Alice Johnson", comment: "A delightful dining experience." },
   ];
-
-  console.log(userData);
 
   return (
     <div className="">
