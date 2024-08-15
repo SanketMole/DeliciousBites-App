@@ -1,9 +1,9 @@
 import express from "express";
 import zod, { Schema } from "zod";
-import { User } from "../db.js";
+import { User } from "../models/db.js";
 import jwt from "jsonwebtoken";
-import { JWT_SECRET } from "../config.js";
-import authMiddleware from "../authMiddleware.js";
+import { JWT_SECRET } from "../controllers/config.js";
+import authMiddleware from "../controllers/authMiddleware.js";
 
 const UserRouter = express.Router();
 console.log("fjfnkj");

@@ -3,6 +3,7 @@ import cors from "cors";
 import { router } from "../backend/routes/index.js";
 import dotenv from "dotenv";
 import UserRouter from "./routes/User.js";
+import OrderRouter from "./routes/Order.js";
 
 dotenv.config({ path: "../.env" });
 console.log("fh");
@@ -12,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/v1", UserRouter);
+app.use("/api/v1", OrderRouter);
 
 console.log("fhrrrrrrrrrrr");
 
