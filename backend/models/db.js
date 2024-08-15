@@ -52,55 +52,57 @@ const userSchema = new mongoose.Schema({
   ],
 });
 
-const orderSchema = mongoose.Schema({
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-    ref: "User",
-  },
-  items: [
-    {
-      id: {
-        // Changed from id to _id
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: "Item",
-      },
-      title: {
-        type: String,
-        required: true,
-      },
-      description: {
-        type: String,
-        required: true,
-      },
-      price: {
-        type: Number,
-        required: true,
-      },
-      quantity: {
-        type: Number,
-        required: true,
-      },
-      image: {
-        type: String,
-        required: true,
-      },
+const orderSchema = mongoose.Schema(
+  {
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "User",
     },
-  ],
-  totalPrice: {
-    type: Number,
-    required: true,
+    items: [
+      {
+        id: {
+          type: Number,
+          required: true,
+          ref: "Item",
+        },
+        title: {
+          type: String,
+          required: true,
+        },
+        description: {
+          type: String,
+          required: true,
+        },
+        price: {
+          type: Number,
+          required: true,
+        },
+        quantity: {
+          type: Number,
+          required: true,
+        },
+        image: {
+          type: String,
+          required: true,
+        },
+      },
+    ],
+    totalPrice: {
+      type: Number,
+      required: true,
+    },
+    discount: {
+      type: Number,
+      required: false,
+    },
+    finalPrice: {
+      type: Number,
+      required: true,
+    },
   },
-  discount: {
-    type: Number,
-    required: true,
-  },
-  finalPrice: {
-    type: Number,
-    required: true,
-  },
-});
+  { timestamps: true }
+); // Add this line to enable timestamps
 
 const Order = mongoose.model("Order", orderSchema);
 const User = mongoose.model("User", userSchema);

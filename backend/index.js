@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/v1", UserRouter);
-app.use("/api/v1", OrderRouter);
+app.use("/api/v1/orders", OrderRouter);
 
 console.log("fhrrrrrrrrrrr");
 

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import del from "../assets/del.png";
 import { Header } from "../Components/Header";
+import { Link } from "react-router-dom";
 
 const View = ({ cart, setcart, userData }) => {
   const [cartItemsArray, setcartItemsArray] = useState([]);
@@ -60,6 +62,46 @@ const View = ({ cart, setcart, userData }) => {
     } else {
       alert("Incorrect Coupon");
       setFinalPrice(totalPrice);
+    }
+  };
+
+  const handleCheckout = async () => {
+    try {
+      // Prepare the data to send
+      const orderData = {
+        items: Object.entries(cart).map(([id, item]) => ({
+          id,
+          title: item.title,
+          description: item.description,
+          price: item.price,
+          quantity: item.quantity,
+          image: item.image,
+        })),
+        totalPrice,
+        discount,
+        finalPrice,
+      };
+
+      console.log(orderData);
+      // Make the POST request to the create order endpoint
+      const response = await axios.post("/api/v1/orders/create", orderData, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      });
+
+      // Handle successful order creation
+      console.log(response.data);
+      alert("Order placed successfully!");
+
+      // Navigate to Thank You page with order data
+
+      // Optionally clear the cart after placing the order
+      setcart({});
+    } catch (error) {
+      console.error("Error creating order:", error);
+      alert("Error placing order. Please try again.");
     }
   };
 
@@ -173,9 +215,6 @@ const View = ({ cart, setcart, userData }) => {
             </button>
 
             <hr className="my-6 border-gray-300" />
-            {/* <p className="text-lg font-semibold text-gray-700">
-              DiscountPrice {totalPrice + totalPrice * 0.18 - finalPrice}
-            </p> */}
             <div className="flex justify-between mb-4">
               <p className="text-xl font-bold">Total</p>
               <div>
@@ -201,13 +240,14 @@ const View = ({ cart, setcart, userData }) => {
                 <p className="text-gray-900">Standard (Free)</p>
               </div>
             </div>
-
-            <button
-              className="w-full py-3 text-white font-medium bg-blue-600 rounded-md shadow-lg hover:bg-blue-700 transition-all"
-              onClick={() => alert("Proceeding to checkout...")}
-            >
-              Checkout Now
-            </button>
+            <Link to="/thankyou">
+              <button
+                className="w-full py-3 text-white font-medium bg-blue-600 rounded-md shadow-lg hover:bg-blue-700 transition-all"
+                onClick={handleCheckout}
+              >
+                Checkout Now
+              </button>
+            </Link>
           </div>
         </div>
       </div>

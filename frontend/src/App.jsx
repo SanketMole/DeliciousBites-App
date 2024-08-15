@@ -9,11 +9,13 @@ import Signin from "./Pages/Signin";
 import HomePage from "./Pages/HomePage";
 import Login from "./Pages/Login";
 import axios from "axios";
+import Thankyou from "./Pages/Thankyou";
 
 const App = () => {
-  const [cart, setcart] = useState({});
+  const [cart, setcart] = useState([]);
   const [userData, setUserData] = useState({});
 
+  console.log(cart);
   useEffect(() => {
     async function fetchUserInfo() {
       try {
@@ -66,6 +68,7 @@ const App = () => {
             path="/login"
             element={<Login cart={cart} setcart={setcart} />}
           />
+          <Route path="/thankyou" element={<Thankyou />} />
         </Routes>
       </BrowserRouter>
     </div>
