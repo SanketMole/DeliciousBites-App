@@ -47,7 +47,7 @@ const NextArrow = ({ onClick }) => (
   </div>
 );
 
-const RestaurantPage = ({ cart, setcart }) => {
+const RestaurantPage = ({ cart, setcart, userData }) => {
   const [swiggydata, setSwiggyData] = useState([]);
   const [place, setPlace] = useState("");
   const [restaurant, setRestaurant] = useState([]);
@@ -120,7 +120,7 @@ const RestaurantPage = ({ cart, setcart }) => {
 
   return (
     <>
-      <Header cart={cart} setcart={setcart} />
+      <Header cart={cart} setcart={setcart} userData={userData} />
       <div className="container mx-auto px-4 py-10">
         {/* Search Bar with Clear Button and Search Icon */}
         <div className="relative flex justify-center mt-16 mb-8">

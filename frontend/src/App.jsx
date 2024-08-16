@@ -10,6 +10,7 @@ import HomePage from "./Pages/HomePage";
 import Login from "./Pages/Login";
 import axios from "axios";
 import Thankyou from "./Pages/Thankyou";
+import AllOrders from "./Pages/AllOrders";
 
 const App = () => {
   const [cart, setcart] = useState([]);
@@ -46,7 +47,13 @@ const App = () => {
           />
           <Route
             path="/restaurantlist"
-            element={<RestaurantPage cart={cart} setcart={setcart} />}
+            element={
+              <RestaurantPage
+                cart={cart}
+                setcart={setcart}
+                userData={userData}
+              />
+            }
           />
           <Route
             path="/more/:id"
@@ -68,7 +75,8 @@ const App = () => {
             path="/login"
             element={<Login cart={cart} setcart={setcart} />}
           />
-          <Route path="/thankyou" element={<Thankyou />} />
+          <Route path="/thankyou/:id" element={<Thankyou />} />
+          <Route path="/allorders/:id" element={<AllOrders />} />
         </Routes>
       </BrowserRouter>
     </div>

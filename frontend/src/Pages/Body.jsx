@@ -310,7 +310,10 @@ export const Body = ({ cart, setcart, userData }) => {
           </div>
         ))}
       </div>
-      <ExploreOptions />
+      <div className="w-[75vh]">
+        <ExploreOptions />
+      </div>
+
       <div className="bg-gradient-to-r from-purple-50 to-pink-100 py-8 sm:py-16">
         <h2 className="text-2xl sm:text-4xl font-bold text-center mb-6 sm:mb-10 text-purple-900">
           What Our Users Say

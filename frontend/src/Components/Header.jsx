@@ -8,7 +8,9 @@ export const Header = ({ cart, userData, setcart }) => {
   const location = useLocation();
   const [log, setlog] = useState(true);
   const [userLocation, setUserLocation] = useState(null);
+  const userId = userData.userId;
 
+  console.log(userData);
   let totalQuantity = 0;
   for (const itemId in cart) {
     if (cart.hasOwnProperty(itemId)) {
@@ -16,6 +18,10 @@ export const Header = ({ cart, userData, setcart }) => {
     }
   }
   const navigate = useNavigate();
+
+  function handleMongoId() {
+    navigate(`/allorders/${userId}`);
+  }
 
   useEffect(() => {
     if ("geolocation" in navigator) {
@@ -127,11 +133,13 @@ export const Header = ({ cart, userData, setcart }) => {
             </div>
 
             <div className="relative">
-              <img
-                src="https://img.freepik.com/premium-vector/cartoon-character-portrait-smiling-boy_684058-737.jpg"
-                alt="User"
-                className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-lg"
-              />
+              <button onClick={handleMongoId}>
+                <img
+                  src="https://img.freepik.com/premium-vector/cartoon-character-portrait-smiling-boy_684058-737.jpg"
+                  alt="User"
+                  className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-lg"
+                />
+              </button>
               <span className="absolute bottom-0 right-0 bg-purple-800 p-1 rounded-full text-white text-xs font-semibold shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150"></span>
             </div>
           </div>

@@ -1,26 +1,33 @@
-import axios from "axios";
 import React, { useState } from "react";
+import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [userId, setUserId] = useState(""); // Use consistent state name
   const navigate = useNavigate();
-  // shreeram_312
 
   const handleRegister = async () => {
-    // Add registration logic here
-    const response = await axios.post("http://localhost:3000/api/v1/signin", {
-      userName,
-      password,
-    });
+    try {
+      const response = await axios.post("http://localhost:3000/api/v1/signin", {
+        userName,
+        password,
+      });
 
-    localStorage.setItem("token", response.data.token);
-    const finaltoken = localStorage.getItem("token");
-    if (finaltoken === response.data.token) {
-      navigate("/");
-    } else {
-      alert("wrong info");
+      const { UserId, token } = response.data; // Destructure response data
+
+      if (UserId && token) {
+        localStorage.setItem("token", token); // Store token
+        setUserId(UserId); // Set userId in state
+
+        navigate(`/`);
+      } else {
+        alert("Wrong info");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      alert("An error occurred. Please try again.");
     }
   };
 
@@ -50,9 +57,7 @@ const Login = () => {
                 User Name
               </label>
               <input
-                onChange={(e) => {
-                  setUserName(e.target.value);
-                }}
+                onChange={(e) => setUserName(e.target.value)}
                 className="w-full px-2 py-1 text-sm text-gray-700 border rounded focus:outline-none focus:shadow-outline"
                 id="userName"
                 type="text"
@@ -67,9 +72,7 @@ const Login = () => {
                 Password
               </label>
               <input
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
+                onChange={(e) => setPassword(e.target.value)}
                 className="w-full px-2 py-1 text-sm text-gray-700 border rounded focus:outline-none focus:shadow-outline"
                 id="password"
                 type="password"

@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import del from "../assets/del.png";
 import { Header } from "../Components/Header";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const View = ({ cart, setcart, userData }) => {
   const [cartItemsArray, setcartItemsArray] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [discount, setDiscount] = useState("");
   const [finalPrice, setFinalPrice] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const cartArray = Object.values(cart);
@@ -84,15 +85,21 @@ const View = ({ cart, setcart, userData }) => {
 
       console.log(orderData);
       // Make the POST request to the create order endpoint
-      const response = await axios.post("/api/v1/orders/create", orderData, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      });
+      const response = await axios.post(
+        "http://localhost:3000/api/v1/orders/create",
+        orderData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        }
+      );
 
       // Handle successful order creation
+
       console.log(response.data);
+      navigate(`/thankyou/${response.data.order._id}`);
       alert("Order placed successfully!");
 
       // Navigate to Thank You page with order data
@@ -240,14 +247,13 @@ const View = ({ cart, setcart, userData }) => {
                 <p className="text-gray-900">Standard (Free)</p>
               </div>
             </div>
-            <Link to="/thankyou">
-              <button
-                className="w-full py-3 text-white font-medium bg-blue-600 rounded-md shadow-lg hover:bg-blue-700 transition-all"
-                onClick={handleCheckout}
-              >
-                Checkout Now
-              </button>
-            </Link>
+
+            <button
+              className="w-full py-3 text-white font-medium bg-blue-600 rounded-md shadow-lg hover:bg-blue-700 transition-all"
+              onClick={handleCheckout}
+            >
+              Checkout Now
+            </button>
           </div>
         </div>
       </div>
