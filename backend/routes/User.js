@@ -55,6 +55,7 @@ UserRouter.post("/signup", async (req, res) => {
     res.json({
       msg: "Successfully created ",
       token,
+      UserId,
     });
   } catch (err) {
     console.error("Signup error:", err);
@@ -103,6 +104,7 @@ UserRouter.post("/signin", async (req, res) => {
         token,
         firstName,
         lastName,
+        UserId: user._id,
       });
     } else {
       res.json({
@@ -163,6 +165,7 @@ UserRouter.get("/user-info", authMiddleware, async (req, res) => {
       userName: user.userName,
       firstName: user.firstName,
       lastName: user.lastName,
+      userId,
     });
   } catch (error) {
     console.error("Error fetching user info:", error);

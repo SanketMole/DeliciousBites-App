@@ -3,8 +3,6 @@ import dotenv from "dotenv";
 
 dotenv.config({ path: "../.env" });
 
-console.log(process.env.MONGO_URI);
-
 mongoose.connect(process.env.MONGO_URI, {
   serverSelectionTimeoutMS: 30000,
   socketTimeoutMS: 60000,
@@ -62,7 +60,7 @@ const orderSchema = mongoose.Schema(
     items: [
       {
         id: {
-          type: Number,
+          type: String,
           required: true,
           ref: "Item",
         },
