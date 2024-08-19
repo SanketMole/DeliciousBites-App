@@ -241,7 +241,7 @@ export const Body = ({ cart, setcart, userData }) => {
               Main Course
             </button>
             <button
-              onClick={() => setdessert(!dessert)}
+              onClick={() => setdessert(!desert)}
               className="bg-gray-200 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-300"
             >
               Desserts
