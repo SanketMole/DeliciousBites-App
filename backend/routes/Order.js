@@ -20,7 +20,6 @@ OrderRouter.post("/create", authMiddleware, async (req, res) => {
     const existingOrder = await Order.findOne({ userId });
 
     if (existingOrder) {
-      // Update the existing order
       existingOrder.items = [...existingOrder.items, ...items];
       existingOrder.totalPrice = totalPrice;
       existingOrder.discount = discount;
@@ -34,7 +33,7 @@ OrderRouter.post("/create", authMiddleware, async (req, res) => {
       }
 
       return res.json({
-        msg: "Order updated successfully",
+        msg: "Order updated successfully done",
         order: existingOrder,
       });
     } else {
