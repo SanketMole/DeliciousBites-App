@@ -20,11 +20,14 @@ const App = () => {
   useEffect(() => {
     async function fetchUserInfo() {
       try {
-        const resp = await axios.get("http://localhost:3000/api/v1/user-info", {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("token"),
-          },
-        });
+        const resp = await axios.get(
+          "https://deliciousbites-app.onrender.com/api/v1/user-info",
+          {
+            headers: {
+              Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+          }
+        );
 
         setUserData(resp.data);
 
@@ -41,8 +44,9 @@ const App = () => {
     <div>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Login cart={cart} setcart={setcart} />} />
           <Route
-            path="/"
+            path="/dashboard"
             element={<Body cart={cart} setcart={setcart} userData={userData} />}
           />
           <Route
@@ -65,7 +69,9 @@ const App = () => {
           />
           <Route
             path="/register"
-            element={<Signin cart={cart} setcart={setcart} />}
+            element={
+              <Signin cart={cart} setcart={setcart} userData={userData} />
+            }
           />
           <Route
             path="/home"

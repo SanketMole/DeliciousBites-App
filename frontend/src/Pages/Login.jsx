@@ -10,10 +10,13 @@ const Login = () => {
 
   const handleRegister = async () => {
     try {
-      const response = await axios.post("http://localhost:3000/api/v1/signin", {
-        userName,
-        password,
-      });
+      const response = await axios.post(
+        "https://deliciousbites-app.onrender.com/api/v1/signin",
+        {
+          userName,
+          password,
+        }
+      );
 
       const { UserId, token } = response.data; // Destructure response data
 
@@ -21,7 +24,7 @@ const Login = () => {
         localStorage.setItem("token", token); // Store token
         setUserId(UserId); // Set userId in state
 
-        navigate(`/`);
+        navigate(`/dashboard`);
       } else {
         alert("Wrong info");
       }

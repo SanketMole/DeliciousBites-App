@@ -13,7 +13,7 @@ const Thankyou = () => {
           order.
         </p>
         <a
-          href="/"
+          href="/dashboard"
           className="inline-block px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors"
         >
           Go to Homepage

@@ -86,7 +86,7 @@ const View = ({ cart, setcart, userData }) => {
       console.log(orderData);
       // Make the POST request to the create order endpoint
       const response = await axios.post(
-        "http://localhost:3000/api/v1/orders/create",
+        "https://deliciousbites-app.onrender.com/api/v1/orders/create",
         orderData,
         {
           headers: {

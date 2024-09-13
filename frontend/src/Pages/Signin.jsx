@@ -11,18 +11,21 @@ const Signin = () => {
 
   async function handleRegister() {
     console.log(firstName);
-    const response = await axios.post("http://localhost:3000/api/v1/signup", {
-      firstName,
-      lastName,
-      password,
-      userName,
-    });
+    const response = await axios.post(
+      "https://deliciousbites-app.onrender.com/api/v1/signup",
+      {
+        firstName,
+        lastName,
+        password,
+        userName,
+      }
+    );
 
     console.log(response.data.token);
     localStorage.setItem("token", response.data.token);
 
     alert(response.data.msg);
-    navigate("/login");
+    navigate("/dashboard");
   }
 
   return (
