@@ -10,13 +10,14 @@ console.log("fh");
 
 const app = express();
 
+app.use(cors());
+app.use(express.json());
+
 app.get("/ddd", () => {
   res.json({
     msg: "test",
   });
 });
-app.use(cors());
-app.use(express.json());
 
 app.use("/api/v1", UserRouter);
 app.use("/api/v1/orders", OrderRouter);
