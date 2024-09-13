@@ -13,7 +13,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get("/ddd", () => {
+app.get("/ddd", (req, res) => {
   res.json({
     msg: "test",
   });
