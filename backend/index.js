@@ -11,7 +11,9 @@ console.log("fh");
 const app = express();
 
 app.get("/ddd", () => {
-  console.log("dsfi");
+  res.json({
+    msg: "test",
+  });
 });
 app.use(cors());
 app.use(express.json());
