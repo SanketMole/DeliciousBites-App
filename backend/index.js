@@ -9,6 +9,10 @@ dotenv.config({ path: "../.env" });
 console.log("fh");
 
 const app = express();
+
+app.get("/ddd", () => {
+  console.log("dsfi");
+});
 app.use(cors());
 app.use(express.json());
 

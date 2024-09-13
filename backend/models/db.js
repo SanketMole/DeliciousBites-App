@@ -100,7 +100,7 @@ const orderSchema = mongoose.Schema(
     },
   },
   { timestamps: true }
-); // Add this line to enable timestamps
+);
 
 const Order = mongoose.model("Order", orderSchema);
 const User = mongoose.model("User", userSchema);

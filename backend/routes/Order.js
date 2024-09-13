@@ -80,3 +80,32 @@ OrderRouter.get("/getallOrders", authMiddleware, async (req, res) => {
 });
 
 export default OrderRouter;
+[
+  {
+    domain: "namastedev.com",
+    expirationDate: 1756846789.858563,
+    hostOnly: true,
+    httpOnly: true,
+    name: "sessionToken",
+    path: "/",
+    sameSite: "no_restriction",
+    secure: true,
+    session: false,
+    storeId: null,
+    value: "c95ae050-8ca9-4355-a17a-b76aa43f153e",
+  },
+  {
+    domain: "namastedev.com",
+    expirationDate: 1725397189.858436,
+    hostOnly: true,
+    httpOnly: true,
+    name: "token",
+    path: "/",
+    sameSite: "no_restriction",
+    secure: true,
+    session: false,
+    storeId: null,
+    value:
+      "Bearer%20eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGNkZmE5MmNkZTY5MzVlN2UwOWVkYyIsImlhdCI6MTcyNTMxMDc4OSwiZXhwIjoxNzI1Mzk3MTg5fQ.iPiK7aya2fPz321DUit_OK8eX4TtwBXlwIb3XhGmqZ8",
+  },
+];
