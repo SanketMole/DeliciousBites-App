@@ -11,6 +11,7 @@ import Login from "./Pages/Login";
 import axios from "axios";
 import Thankyou from "./Pages/Thankyou";
 import AllOrders from "./Pages/AllOrders";
+import About from "./Pages/About";
 
 const App = () => {
   const [cart, setcart] = useState([]);
@@ -62,6 +63,14 @@ const App = () => {
           <Route
             path="/more/:id"
             element={<More cart={cart} setcart={setcart} userData={userData} />}
+          />
+          <Route
+          path='/about'
+          element={<About
+          cart={cart}
+          setcart={setcart}
+          userData={userData}
+          />}
           />
           <Route
             path="/view"
